@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ayutthaya Book - Content</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html,body{
+    margin:0;
+    padding:0;
+    min-height:100%;
+    font-family:
+        "Trebuchet MS",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+    background:
+        linear-gradient(135deg,#fff8e8,#f6dfaa,#fff4d5);
+    color:#4b2b13;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    height:72px;
+    background:rgba(255,255,255,.95);
+    border-bottom:3px solid #d8aa55;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 12px rgba(80,45,10,.12);
+}
+
+.logo{
+    font-size:20px;
+    font-weight:800;
+    color:#52246f;
+}
+
+.logo span{
+    margin-right:10px;
+}
+
+.home-btn{
+    border:none;
+    background:linear-gradient(135deg,#a52ac1,#7b1fa2);
+    color:white;
+    padding:12px 25px;
+    border-radius:25px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(120,30,150,.25);
+}
+
+.home-btn:hover{
+    transform:translateY(-1px);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main{
+    width:100%;
+    min-height:calc(100vh - 72px);
+    padding:20px 20px 35px;
+    display:flex;
+    justify-content:center;
+}
+
+.book{
+    width:min(1080px,96vw);
+    background:
+        linear-gradient(145deg,#fffdf4,#fff1c9);
+    border:5px solid #c8933c;
+    border-radius:25px;
+    padding:12px;
+    box-shadow:
+        0 12px 30px rgba(80,45,10,.25),
+        inset 0 0 0 3px #f4d28b;
+    position:relative;
+}
+
+/* =========================
+   TOP IMAGE / VIDEO
+========================= */
+
+.media-area{
+    width:100%;
+    height:min(52vw,480px);
+    min-height:280px;
+    border-radius:18px;
+    overflow:hidden;
+    border:4px solid #8f6224;
+    background:#2c2115;
+    position:relative;
+    box-shadow:inset 0 0 20px rgba(0,0,0,.4);
+}
+
+.page-image,
+.page-video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.page-video{
+    background:#111;
+}
+
+/* hide image if video is used */
+.hidden{
+    display:none !important;
+}
+
+/* =========================
+   PAGE BADGE
+========================= */
+
+.scene-badge{
+    position:absolute;
+    top:15px;
+    left:15px;
+    z-index:10;
+    background:#efa72e;
+    color:#3b210d;
+    padding:10px 22px;
+    border-radius:8px;
+    font-weight:900;
+    font-size:18px;
+    box-shadow:0 3px 8px rgba(0,0,0,.25);
+}
+
+.page-number{
+    position:absolute;
+    top:15px;
+    right:15px;
+    z-index:10;
+    background:#fffdf5;
+    color:#57216f;
+    padding:10px 18px;
+    border-radius:4px;
+    font-weight:800;
+    box-shadow:0 3px 8px rgba(0,0,0,.2);
+}
+
+/* =========================
+   CONTENT + AUDIO
+========================= */
+
+.content-row{
+    display:grid;
+    grid-template-columns:1fr 175px;
+    gap:14px;
+    margin-top:14px;
+}
+
+.text-box{
+    min-height:125px;
+    background:
+        linear-gradient(135deg,#fffdf4,#fff4d4);
+    border:1px solid #e2bd70;
+    border-radius:15px;
+    padding:18px 24px;
+    box-shadow:0 3px 10px rgba(130,85,20,.08);
+}
+
+/* title */
+.page-title{
+    text-align:center;
+    font-size:22px;
+    font-weight:900;
+    color:#76249e;
+    margin-bottom:12px;
+}
+
+/* =========================
+   KARAOKE
+========================= */
+
+.karaoke{
+    text-align:center;
+    font-size:20px;
+    line-height:1.8;
+    font-weight:600;
+}
+
+.karaoke-word{
+    display:inline-block;
+    padding:2px 5px;
+    margin:1px 2px;
+    border-radius:7px;
+    color:#4b2570;
+    background:transparent;
+    -webkit-text-fill-color:currentColor;
+    transition:color .08s linear, background-color .08s linear, transform .08s linear, box-shadow .08s linear;
+}
+
+/* คำที่กำลังอ่าน: ต้องเห็นชัดใน Chrome */
+.karaoke-word.active{
+    color:#ffffff !important;
+    -webkit-text-fill-color:#ffffff !important;
+    background-color:#ef6b17 !important;
+    transform:scale(1.08);
+    box-shadow:0 2px 8px rgba(239,107,23,.35);
+}
+
+/* คำที่อ่านจบแล้ว */
+.karaoke-word.done{
+    color:#ef6b17 !important;
+    -webkit-text-fill-color:#ef6b17 !important;
+}
+
+/* Karaoke ต้องเห็นสีแม้ browser มี style อื่นมาทับ */
+#karaokeText .karaoke-word.active{
+    color:#ffffff !important;
+    -webkit-text-fill-color:#ffffff !important;
+    background:#ef6b17 !important;
+    opacity:1 !important;
+    visibility:visible !important;
+}
+
+#karaokeText .karaoke-word.done{
+    color:#ef6b17 !important;
+    -webkit-text-fill-color:#ef6b17 !important;
+    opacity:1 !important;
+}
+
+/* cover text */
+.cover-text{
+    font-size:24px;
+    line-height:1.7;
+    text-align:center;
+    font-weight:700;
+}
+
+/* =========================
+   AUDIO BUTTONS
+========================= */
+
+.audio-controls{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.audio-btn{
+    border:none;
+    border-radius:16px;
+    min-height:70px;
+    color:#fff;
+    cursor:pointer;
+    font-size:19px;
+    font-weight:900;
+    box-shadow:0 4px 9px rgba(0,0,0,.18);
+    transition:.15s;
+}
+
+.audio-btn:hover{
+    transform:translateY(-2px);
+}
+
+.audio-btn:active{
+    transform:scale(.98);
+}
+
+.normal-btn{
+    background:linear-gradient(135deg,#68c51e,#43a916);
+}
+
+.slow-btn{
+    background:linear-gradient(135deg,#39a8e9,#147bc5);
+}
+
+.audio-btn small{
+    display:block;
+    font-size:13px;
+    margin-top:2px;
+}
+
+.audio-btn.active{
+    outline:4px solid rgba(255,196,0,.45);
+}
+
+/* =========================
+   INSTRUCTION
+========================= */
+
+.instruction{
+    text-align:center;
+    font-size:13px;
+    color:#684e37;
+    margin-top:8px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation{
+    display:grid;
+    grid-template-columns:125px 1fr 125px;
+    align-items:center;
+    gap:15px;
+    margin-top:12px;
+}
+
+.nav-btn{
+    height:52px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#f4bd55,#dc951d);
+    color:#512d0e;
+    font-size:18px;
+    font-weight:900;
+    cursor:pointer;
+    box-shadow:0 4px 8px rgba(110,70,15,.2);
+}
+
+.nav-btn:disabled{
+    opacity:.4;
+    cursor:not-allowed;
+}
+
+.dots{
+    height:42px;
+    background:#fff0cf;
+    border:1px solid #dfb45b;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    padding:0 10px;
+    overflow:hidden;
+}
+
+.dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#d9bc82;
+    flex:none;
+    cursor:pointer;
+}
+
+.dot.active{
+    width:13px;
+    height:13px;
+    background:#ef6b17;
+}
+
+/* =========================
+   STORY PAGES 17-25
+========================= */
+
+.story-box{
+    background:
+        linear-gradient(135deg,#fffdf4,#fff2cd);
+    border:1px solid #e2bd70;
+    border-radius:15px;
+    padding:28px;
+    margin-top:14px;
+    min-height:230px;
+}
+
+.story-title{
+    text-align:center;
+    color:#702394;
+    font-size:27px;
+    margin-bottom:18px;
+}
+
+.story-text{
+    font-size:20px;
+    line-height:1.9;
+    text-align:justify;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+    .header{
+        padding:0 15px;
+        height:62px;
+    }
+
+    .logo{
+        font-size:15px;
+    }
+
+    .home-btn{
+        padding:9px 16px;
+    }
+
+    .main{
+        padding:10px;
+    }
+
+    .book{
+        width:100%;
+        border-width:3px;
+        border-radius:18px;
+    }
+
+    .content-row{
+        grid-template-columns:1fr;
+    }
+
+    .audio-controls{
+        flex-direction:row;
+    }
+
+    .audio-btn{
+        flex:1;
+        min-height:60px;
+    }
+
+    .navigation{
+        grid-template-columns:95px 1fr 95px;
+    }
+
+    .nav-btn{
+        font-size:15px;
+    }
+
+    .karaoke{
+        font-size:17px;
+    }
+
+    .cover-text{
+        font-size:19px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">
+        <span>🏛️</span>
+        Phra Nakhon Si Ayutthaya Travel Guide
+    </div>
+
+    <button class="home-btn" onclick="goHome()">
+        🏠 หน้าหลัก
+    </button>
+</header>
+
+<main class="main">
+
+<div class="book">
+
+    <!-- MEDIA -->
+    <div class="media-area">
+
+        <div class="scene-badge" id="sceneBadge">
+            Scene 1
+        </div>
+
+        <div class="page-number" id="pageNumber">
+            Page 1/25
+        </div>
+
+        <!-- รูป -->
+        <img
+            id="pageImage"
+            class="page-image"
+            src="images/page1.jpg"
+            alt="Ayutthaya"
+        >
+
+        <!-- วิดีโอของแต่ละหน้า: videos/page1.mp4 ... videos/page25.mp4 -->
+        <video
+    id="pageVideo"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    controls>
+</video>
+
+    </div>
+
+
+    <!-- TEXT + AUDIO -->
+    <div class="content-row">
+
+        <div class="text-box">
+
+            <div id="pageTitle" class="page-title">
+                About Phra Nakhon Si Ayutthaya.
+            </div>
+
+            <div id="karaokeText" class="karaoke"></div>
+
+        </div>
+
+
+        <div
+            id="audioControls"
+            class="audio-controls"
+        >
+
+            <button
+                class="audio-btn normal-btn"
+                id="normalBtn"
+                onclick="playAudio('normal')"
+            >
+                🔊 Normal
+                <small>Speed</small>
+            </button>
+
+            <button
+                class="audio-btn slow-btn"
+                id="slowBtn"
+                onclick="playAudio('slow')"
+            >
+                🐢 Slow
+                <small>Speed</small>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="instruction"
+        class="instruction"
+    >
+        🔊 เลือก Normal หรือ Slow เพื่อฟังเสียงและดู Karaoke
+    </div>
+
+
+    <!-- NAVIGATION -->
+    <div class="navigation">
+
+        <button
+            id="prevBtn"
+            class="nav-btn"
+            onclick="previousPage()"
+        >
+            ◀ Previous
+        </button>
+
+        <div
+            id="dots"
+            class="dots"
+        ></div>
+
+        <button
+            id="nextBtn"
+            class="nav-btn"
+            onclick="nextPage()"
+        >
+            Next ▶
+        </button>
+
+    </div>
+
+</div>
+
+</main>
+
+
+<audio id="audioPlayer" preload="auto"></audio>
+
+
+<script>
+
+/* =========================================================
+   AYUTTHAYA CONTENT
+   หน้า 1-16 ใช้ข้อความตรงกับบทที่ผู้ใช้กำหนด
+========================================================= */
+
+const pages = [
+
+/* =========================
+   PAGE 1
+========================= */
+
+{
+    page:1,
+    title:"About Phra Nakhon Si Ayutthaya.",
+    text:"About Phra Nakhon Si Ayutthaya. Backpack Adventure... Falling in Love with the Ancient City.",
+    audio:true,
+    image:"images/page1.jpg"
+},
+
+/* =========================
+   PAGE 2
+========================= */
+
+{
+    page:2,
+    title:"",
+    text:"Once considered the most spectacular city on Earth, the ruins of the capital of the Kingdom Ayutthaya are now a major tourist attraction easily accessible from Bangkok by car, train, or boat, as either a daytrip or overnight excursion.",
+    audio:true,
+    image:"images/page2.jpg"
+},
+
+/* =========================
+   PAGE 3
+========================= */
+
+{
+    page:3,
+    title:"",
+    text:"Ayutthaya is one of Thailand's historical and majestic highlights. The capital of Thailand, then known as the Kingdom of Ayutthaya, Phra Nakhon Si Ayutthaya was glorified as one of the biggest cities in Southeast Asia, and a regional power for four hundred and seventeen years.",
+    audio:true,
+    image:"images/page3.jpg"
+},
+
+/* =========================
+   PAGE 4
+========================= */
+
+{
+    page:4,
+    title:"",
+    text:"The Kingdom of Ayutthaya reached its apex in terms of sovereignty, military might, wealth, culture, and international commerce in the sixteenth century, when the Kingdom's territory extended into and beyond present-day Laos, Cambodia, and Myanmar. Ayutthaya had diplomatic relations with Louis the Fourteenth of France, and was courted by Dutch, Portuguese, English, Chinese, and Japanese merchants.",
+    audio:true,
+    image:"images/page4.jpg"
+},
+
+/* =========================
+   PAGE 5
+========================= */
+
+{
+    page:5,
+    title:"",
+    text:"During the seventeenth century, most foreign visitors to Ayutthaya, traders and diplomats alike, claimed Ayutthaya to be the most illustrious and glittering city that they had ever visited. The map of Ayutthaya published in sixteen ninety-one, by Simon de la Loubere, in Du Royaume De Siam, is proof of such recognition.",
+    audio:true,
+    image:"images/page5.jpg"
+},
+
+/* =========================
+   PAGE 6
+========================= */
+
+{
+    page:6,
+    title:"",
+    text:"Visitors can explore and appreciate Thai history in Phra Nakhon Si Ayutthaya, which is only eighty-six kilometers north of Bangkok. Visitors to Ayutthaya can marvel at its grandeur reflected through numerous magnificent temples and ruins concentrated in and around the city, which is located upon an island surrounded by the Chao Phraya, Pa Sak, and Lopburi Rivers.",
+    audio:true,
+    image:"images/page6.jpg"
+},
+
+/* =========================
+   PAGE 7
+========================= */
+
+{
+    page:7,
+    title:"",
+    text:"Although there are numerous attractions, the Phra Nakhon Si Ayutthaya Historical Park, in the heart of Ayutthaya city, is a UNESCO's World Heritage site, and a wonder to behold.",
+    audio:true,
+    image:"images/page7.jpg"
+},
+
+/* =========================
+   PAGE 8
+========================= */
+
+{
+    page:8,
+    title:"",
+    text:"Once the capital of the Thai Empire, Ayutthaya was a truly impressive city; with three palaces, and over four hundred temples, located on an island threaded by canals, it attracted traders and diplomats from both Europe and Asia.",
+    audio:true,
+    image:"images/page8.jpg"
+},
+
+/* =========================
+   PAGE 9
+========================= */
+
+{
+    page:9,
+    title:"",
+    text:"In seventeen sixty-seven, four hundred and seventeen years after it was founded, and fifteen months after the siege began, the Kingdom of Ayutthaya was conquered, and the city's magnificent structures were almost completely destroyed by Burmese invaders. When King Taksin the Great finally liberated the Kingdom, a new dynasty was established, and the capital was moved to Thonburi, across the river from modern-day Bangkok.",
+    audio:true,
+    image:"images/page9.jpg"
+},
+
+/* =========================
+   PAGE 10
+========================= */
+
+{
+    page:10,
+    title:"",
+    text:"The ruins that now remain, many of which have been painstakingly restored, have been granted World Heritage status by UNESCO. The architecture of Ayutthaya is a fascinating mix of Khmer and early Sukhothai styles.",
+    audio:true,
+    image:"images/page10.jpg"
+},
+
+/* =========================
+   PAGE 11
+========================= */
+
+{
+    page:11,
+    title:"",
+    text:"Some cactus-shaped obelisks, called prangs, denote Khmer influence, and look something like the famous towers of Angkor Wat. The more pointed stupas are ascribed to the Sukhothai influence.",
+    audio:true,
+    image:"images/page11.jpg"
+},
+
+/* =========================
+   PAGE 12
+========================= */
+
+{
+    page:12,
+    title:"",
+    text:"Ayutthaya is only located about ninety kilometers from Bangkok, and can be visited on a daytrip; however, if you appreciate history, and religious and historical monuments, an overnight stay will allow for two full days of sightseeing, including a dinner cruise on the Chao Phraya, past the illuminated Phra Nakhon Si Ayutthaya Historical Park, and a visit to only of the city's many other attractions, including the nearby Bang Sai Folk Arts and Craft Center.",
+    audio:true,
+    image:"images/page12.jpg"
+},
+
+/* =========================
+   PAGE 13
+========================= */
+
+{
+    page:13,
+    title:"",
+    text:"The province is divided into sixteen districts, or Amphoe, two hundred and nine communes, sub-districts, or Tambon, and one thousand three hundred and twenty-eight villages, or Muban.",
+    audio:true,
+    image:"images/page13.jpg"
+},
+
+/* =========================
+   PAGE 14
+========================= */
+
+{
+    page:14,
+    title:"",
+    text:"There are two districts which have the same English name; however, this is only because the different pronunciation, and thus different spelling in Thai, gets lost in romanization.",
+    audio:true,
+    image:"images/page14.jpg"
+},
+
+/* =========================
+   PAGE 15
+========================= */
+
+{
+    page:15,
+    title:"",
+    text:"Ayutthaya is unique among the provinces of Thailand, in that the district of its seat of government is not called Amphoe Mueang Ayutthaya, as the common scheme would suggest, but rather Amphoe Phra Nakhon Si Ayutthaya.",
+    audio:true,
+    image:"images/page15.jpg"
+},
+
+/* =========================
+   PAGE 16
+========================= */
+
+{
+    page:16,
+    title:"",
+    text:"One. Phra Nakhon Si Ayutthaya. Two. Tha Ruea. Three. Nakhon Luang. Four. Bang Sai. Five. Bang Ban. Six. Bang Pa-in. Seven. Bang Pahan. Eight. Phak Hai. Nine. Phachi. Ten. Lat Bua Luang. Eleven. Wang Noi. Twelve. Sena. Thirteen. Bang Sai. Fourteen. Uthai. Fifteen. Maha Rat. Sixteen. Ban Phraek.",
+    audio:true,
+    image:"images/page16.jpg"
+},
+
+/* =========================
+   PAGE 17
+========================= */
+
+{
+    page:17,
+    title:"Ayutthaya Story",
+    text:"The ancient city of Ayutthaya tells the story of a powerful kingdom and a remarkable chapter in Thai history.",
+    audio:false,
+    image:"images/page17.jpg"
+},
+
+/* =========================
+   PAGE 18
+========================= */
+
+{
+    page:18,
+    title:"The Ancient Capital",
+    text:"The city grew into an important center of culture, trade, religion, and international relations.",
+    audio:false,
+    image:"images/page18.jpg"
+},
+
+/* =========================
+   PAGE 19
+========================= */
+
+{
+    page:19,
+    title:"A City of Temples",
+    text:"Magnificent temples, palaces, and monuments reflected the wealth and artistic achievements of the Ayutthaya Kingdom.",
+    audio:false,
+    image:"images/page19.jpg"
+},
+
+/* =========================
+   PAGE 20
+========================= */
+
+{
+    page:20,
+    title:"Trade and Culture",
+    text:"Merchants and visitors from many countries came to Ayutthaya, bringing goods, ideas, languages, and cultures.",
+    audio:false,
+    image:"images/page20.jpg"
+},
+
+/* =========================
+   PAGE 21
+========================= */
+
+{
+    page:21,
+    title:"The Rivers",
+    text:"The Chao Phraya, Pa Sak, and Lopburi Rivers surrounded the city and played an important role in transportation and trade.",
+    audio:false,
+    image:"images/page21.jpg"
+},
+
+/* =========================
+   PAGE 22
+========================= */
+
+{
+    page:22,
+    title:"Historical Ruins",
+    text:"Today, visitors can explore the ruins and imagine the magnificent capital that once stood here.",
+    audio:false,
+    image:"images/page22.jpg"
+},
+
+/* =========================
+   PAGE 23
+========================= */
+
+{
+    page:23,
+    title:"World Heritage",
+    text:"The historic city of Ayutthaya has been recognized as a UNESCO World Heritage site.",
+    audio:false,
+    image:"images/page23.jpg"
+},
+
+/* =========================
+   PAGE 24
+========================= */
+
+{
+    page:24,
+    title:"Discover Ayutthaya",
+    text:"Walking among the ancient temples and ruins allows visitors to experience the atmosphere of Thailand's historic capital.",
+    audio:false,
+    image:"images/page24.jpg"
+},
+
+/* =========================
+   PAGE 25
+========================= */
+
+{
+    page:25,
+    title:"Falling in Love with the Ancient City",
+    text:"Ayutthaya is more than an ancient city. It is a place where history, culture, architecture, and beautiful memories come together.",
+    audio:false,
+    image:"images/page25.jpg"
+}
+
+];
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let currentPage = 1;
+
+let currentMode = null;
+
+const audioPlayer =
+    document.getElementById("audioPlayer");
+
+let karaokeTimer = null;
+
+let karaokeWords = [];
+
+let karaokeIndex = -1;
+
+
+/* =========================================================
+   DOM
+========================================================= */
+
+const pageImage =
+    document.getElementById("pageImage");
+
+const pageVideo =
+    document.getElementById("pageVideo");
+
+const pageTitle =
+    document.getElementById("pageTitle");
+
+const karaokeText =
+    document.getElementById("karaokeText");
+
+const sceneBadge =
+    document.getElementById("sceneBadge");
+
+const pageNumber =
+    document.getElementById("pageNumber");
+
+const audioControls =
+    document.getElementById("audioControls");
+
+const instruction =
+    document.getElementById("instruction");
+
+const normalBtn =
+    document.getElementById("normalBtn");
+
+const slowBtn =
+    document.getElementById("slowBtn");
+
+const prevBtn =
+    document.getElementById("prevBtn");
+
+const nextBtn =
+    document.getElementById("nextBtn");
+
+const dots =
+    document.getElementById("dots");
+
+
+/* =========================================================
+   CREATE DOTS
+========================================================= */
+
+function createDots(){
+
+    dots.innerHTML="";
+
+    pages.forEach((page,index)=>{
+
+        const dot =
+            document.createElement("span");
+
+        dot.className="dot";
+
+        dot.title=`หน้า ${page.page}`;
+
+        dot.onclick=()=>{
+            goToPage(index+1);
+        };
+
+        dots.appendChild(dot);
+
+    });
+
+}
+
+
+/* =========================================================
+   STOP AUDIO
+========================================================= */
+
+function stopAudio(){
+
+    clearInterval(karaokeTimer);
+
+    karaokeTimer=null;
+
+    audioPlayer.pause();
+    audioPlayer.ontimeupdate=null;
+    audioPlayer.onplay=null;
+
+    audioPlayer.currentTime=0;
+
+    audioPlayer.removeAttribute("src");
+
+    audioPlayer.load();
+
+    currentMode=null;
+
+    if(karaokeFrame){
+        cancelAnimationFrame(karaokeFrame);
+        karaokeFrame=null;
+    }
+
+    karaokeIndex=-1;
+
+
+    document
+        .querySelectorAll(".karaoke-word")
+        .forEach(word=>{
+            word.classList.remove("active","done");
+             word.style.removeProperty("--karaoke-progress");
+             word.style.removeProperty("background-color");
+             word.style.removeProperty("color");
+             word.style.removeProperty("-webkit-text-fill-color");
+             word.style.removeProperty("transform");
+             word.style.removeProperty("box-shadow");
+        });
+
+    normalBtn.classList.remove("active");
+
+    slowBtn.classList.remove("active");
+}
+
+
+/* =========================================================
+   KARAOKE WORDS
+========================================================= */
+
+function createKaraoke(text){
+
+    karaokeText.innerHTML="";
+
+    karaokeWords=[];
+
+    const tokens =
+        text.trim().split(/\s+/);
+
+    tokens.forEach((token,index)=>{
+
+        const span =
+            document.createElement("span");
+
+        span.className="karaoke-word";
+
+        span.textContent=token;
+
+        span.dataset.index=index;
+
+        karaokeText.appendChild(span);
+
+        karaokeWords.push(span);
+
+        if(index < tokens.length-1){
+
+            karaokeText.appendChild(
+                document.createTextNode(" ")
+            );
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   KARAOKE SYNC
+========================================================= */
+
+/*
+   ระบบนี้ใช้ความยาวจริงของ MP3
+   แล้วแบ่งเวลาให้แต่ละคำตามจำนวนคำ
+
+   เมื่อเสียงเริ่ม:
+   คำจะถูกไฮไลต์ทีละคำ
+
+   เมื่อเสียงจบ:
+   คำสุดท้ายจะถูกไฮไลต์
+*/
+
+/* =========================================================
+   KARAOKE TIMING
+   ใช้เวลาที่กำหนดจริงของเสียงแต่ละหน้า
+   ถ้าไม่มีเวลาของไฟล์นั้น จะใช้ duration ของไฟล์เสียงอัตโนมัติ
+========================================================= */
+
+const karaokeDurations = {
+    normal: {
+        2:18.84, 3:22.88, 4:33.52, 5:25.56,
+        6:27.00, 7:14.44, 8:21.68, 9:31.40,
+        10:18.80, 11:17.64, 12:35.76, 13:32.36,
+        14:16.92, 15:18.44, 16:17.76
+    },
+    slow: {
+        2:24.40, 3:31.16, 4:47.68, 5:35.64,
+        6:42.20, 7:20.56, 8:28.08, 9:41.64,
+        10:24.76, 11:22.00, 12:55.16, 13:26.68,
+        14:23.44, 15:25.08, 16:64.24
+    }
+};
+
+let karaokeFrame=null;
+
+function resetKaraokeWords(){
+    if(karaokeFrame){
+        cancelAnimationFrame(karaokeFrame);
+        karaokeFrame=null;
+    }
+
+    karaokeWords.forEach(word=>{
+        word.classList.remove('active','done');
+        word.style.removeProperty('--karaoke-progress');
+        word.style.removeProperty('background-color');
+        word.style.removeProperty('color');
+        word.style.removeProperty('-webkit-text-fill-color');
+        word.style.removeProperty('transform');
+        word.style.removeProperty('box-shadow');
+    });
+
+    karaokeIndex=-1;
+}
+
+function getKaraokeDuration(pageNumber, mode){
+    const fixed = karaokeDurations?.[mode]?.[pageNumber];
+    if(fixed && Number.isFinite(fixed)) return fixed;
+
+    return (Number.isFinite(audioPlayer.duration) && audioPlayer.duration > 0)
+        ? audioPlayer.duration
+        : 0;
+}
+
+function updateKaraoke(){
+    if(!karaokeWords.length || !currentMode) return;
+
+    let duration = audioPlayer.duration;
+    if(!Number.isFinite(duration) || duration <= 0){
+        duration = getKaraokeDuration(currentPage,currentMode);
+    }
+    if(!Number.isFinite(duration) || duration <= 0) return;
+
+    const time = Math.max(0, Math.min(duration, audioPlayer.currentTime || 0));
+    const totalWords = karaokeWords.length;
+
+    let index = Math.floor((time / duration) * totalWords);
+    if(index < 0) index = 0;
+    if(index >= totalWords) index = totalWords - 1;
+
+    karaokeWords.forEach((word,i)=>{
+        word.classList.remove("active","done");
+
+        word.style.setProperty("background-color","transparent","important");
+        word.style.setProperty("color","#4b2570","important");
+        word.style.setProperty("-webkit-text-fill-color","#4b2570","important");
+        word.style.removeProperty("transform");
+        word.style.removeProperty("box-shadow");
+
+        if(i < index){
+            word.classList.add("done");
+            word.style.setProperty("color","#ef6b17","important");
+            word.style.setProperty("-webkit-text-fill-color","#ef6b17","important");
+        }else if(i === index){
+            word.classList.add("active");
+            word.style.setProperty("background-color","#ef6b17","important");
+            word.style.setProperty("color","#ffffff","important");
+            word.style.setProperty("-webkit-text-fill-color","#ffffff","important");
+            word.style.setProperty("transform","scale(1.08)");
+            word.style.setProperty("box-shadow","0 2px 8px rgba(239,107,23,.35)");
+        }
+    });
+
+    karaokeIndex = index;
+}
+
+function startKaraoke(){
+    resetKaraokeWords();
+
+    /*
+      ใช้ทั้ง timeupdate + interval เพื่อให้ Karaoke วิ่งแน่นอน
+      แม้ browser จะลดความถี่ของ requestAnimationFrame
+    */
+    audioPlayer.ontimeupdate = updateKaraoke;
+    audioPlayer.onloadedmetadata = updateKaraoke;
+    audioPlayer.onplay = updateKaraoke;
+    audioPlayer.onseeking = updateKaraoke;
+    audioPlayer.onseeked = updateKaraoke;
+
+    clearInterval(karaokeTimer);
+    karaokeTimer = setInterval(updateKaraoke, 40);
+
+    updateKaraoke();
+}
+
+/* =========================================================
+   PLAY AUDIO
+========================================================= */
+
+function playAudio(mode){
+
+    const page = pages[currentPage-1];
+    if(!page || !page.audio) return;
+
+    if(currentMode === mode && !audioPlayer.paused){
+        stopAudio();
+        return;
+    }
+
+    stopAudio();
+    currentMode = mode;
+
+    const file = `audio/page${page.page}-${mode}.mp3`;
+
+    /* รีเซ็ต Karaoke และทำให้คำแรกติดสีทันที */
+    resetKaraokeWords();
+
+    if(karaokeWords.length){
+        const first = karaokeWords[0];
+        first.classList.add("active");
+        first.style.setProperty("background-color","#ef6b17","important");
+        first.style.setProperty("color","#ffffff","important");
+        first.style.setProperty("-webkit-text-fill-color","#ffffff","important");
+        first.style.setProperty("transform","scale(1.08)");
+        first.style.setProperty("box-shadow","0 2px 8px rgba(239,107,23,.35)");
+    }
+
+    if(mode === "normal"){
+        normalBtn.classList.add("active");
+        slowBtn.classList.remove("active");
+    }else{
+        slowBtn.classList.add("active");
+        normalBtn.classList.remove("active");
+    }
+
+    audioPlayer.src = file;
+    audioPlayer.volume = 1.0;
+    audioPlayer.playbackRate = mode === "slow" ? 0.65 : 1.0;
+
+    audioPlayer.onloadedmetadata = updateKaraoke;
+    audioPlayer.onloadeddata = updateKaraoke;
+    audioPlayer.oncanplay = updateKaraoke;
+    audioPlayer.ontimeupdate = updateKaraoke;
+    audioPlayer.onseeking = updateKaraoke;
+    audioPlayer.onseeked = updateKaraoke;
+
+    audioPlayer.onended = () => {
+        clearInterval(karaokeTimer);
+        karaokeTimer = null;
+
+        karaokeWords.forEach(word => {
+            word.classList.remove("active");
+            word.classList.add("done");
+            word.style.setProperty("background-color","transparent","important");
+            word.style.setProperty("color","#ef6b17","important");
+            word.style.setProperty("-webkit-text-fill-color","#ef6b17","important");
+            word.style.removeProperty("transform");
+            word.style.removeProperty("box-shadow");
+        });
+
+        normalBtn.classList.remove("active");
+        slowBtn.classList.remove("active");
+        currentMode = null;
+    };
+
+    audioPlayer.load();
+
+    clearInterval(karaokeTimer);
+    karaokeTimer = setInterval(() => {
+        if(currentMode === mode && !audioPlayer.paused && !audioPlayer.ended){
+            updateKaraoke();
+        }
+    },40);
+
+    audioPlayer.play()
+        .then(() => updateKaraoke())
+        .catch(error => console.error("ไม่สามารถเล่นเสียง:",file,error));
+}
+
+
+/* =========================================================
+   LOAD PAGE
+========================================================= */
+
+function stopPageVideo(){
+    if(!pageVideo) return;
+    pageVideo.pause();
+    pageVideo.currentTime = 0;
+    pageVideo.removeAttribute("src");
+    pageVideo.load();
+}
+
+function loadPage(pageNumberToLoad){
+
+    stopAudio();
+    stopPageVideo();
+
+    currentPage =
+        Math.max(
+            1,
+            Math.min(
+                pages.length,
+                pageNumberToLoad
+            )
+        );
+
+    const page =
+        pages[currentPage-1];
+
+
+    /* ======================
+       PAGE NUMBER
+    ====================== */
+
+    pageNumber.textContent =
+        `Page ${currentPage}/25`;
+
+    sceneBadge.textContent =
+        `Scene ${currentPage}`;
+
+
+    /* ======================
+       IMAGE
+    ====================== */
+
+    pageImage.src =
+        page.image;
+
+    pageImage.classList.remove("hidden");
+
+
+    /* ======================
+       VIDEO
+       เล่นอัตโนมัติ + วนซ้ำ + เสียงเบา
+    ====================== */
+
+    pageVideo.pause();
+    pageVideo.currentTime = 0;
+    pageVideo.removeAttribute("src");
+    pageVideo.load();
+    pageVideo.classList.add("hidden");
+
+    const videoFile = `videos/page${page.page}.mp4`;
+    pageVideo.poster = page.image;
+
+    pageVideo.autoplay = true;
+    pageVideo.loop = true;
+    pageVideo.playsInline = true;
+    pageVideo.preload = "auto";
+
+    /* ลดเสียงวิดีโอเหลือ 10% เพื่อให้เสียงอ่านเด่นกว่า */
+    pageVideo.muted = false;
+    pageVideo.volume = 0.10;
+
+    pageVideo.onloadeddata = () => {
+        pageVideo.classList.remove("hidden");
+        pageImage.classList.add("hidden");
+
+        pageVideo.play().catch(() => {
+            /* หากเบราว์เซอร์บล็อก autoplay ที่มีเสียง */
+            pageVideo.muted = true;
+            pageVideo.play().catch(() => {});
+        });
+    };
+
+    pageVideo.onerror = () => {
+        pageVideo.pause();
+        pageVideo.removeAttribute("src");
+        pageVideo.load();
+        pageVideo.classList.add("hidden");
+        pageImage.classList.remove("hidden");
+    };
+
+    pageVideo.src = videoFile;
+    pageVideo.load();
+
+
+    /* ======================
+       TITLE
+    ====================== */
+
+    pageTitle.textContent =
+        page.title || "";
+
+    pageTitle.style.display =
+        page.title
+        ? "block"
+        : "none";
+
+
+    /* ======================
+       KARAOKE TEXT
+    ====================== */
+
+    createKaraoke(page.text);
+
+
+    /* ======================
+       AUDIO
+    ====================== */
+
+    if(page.audio){
+
+        audioControls.style.display="flex";
+
+        instruction.textContent =
+            "🔊 เลือก Normal หรือ Slow เพื่อฟังเสียงและดู Karaoke";
+
+    }else{
+
+        audioControls.style.display="none";
+
+        instruction.textContent =
+            "📖 อ่านเนื้อเรื่องแล้วกด Next เพื่อไปหน้าถัดไป";
+
+    }
+
+
+    /* ======================
+       BUTTONS
+    ====================== */
+
+    prevBtn.disabled =
+        currentPage===1;
+
+    nextBtn.disabled =
+        currentPage===pages.length;
+
+
+    /* ======================
+       DOTS
+    ====================== */
+
+    const allDots =
+        document.querySelectorAll(".dot");
+
+    allDots.forEach(
+        (dot,index)=>{
+            dot.classList.toggle(
+                "active",
+                index===currentPage-1
+            );
+        }
+    );
+
+
+    /* ======================
+       TOP
+    ====================== */
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+function nextPage(){
+
+    stopAudio();
+    stopPageVideo();
+
+    if(currentPage < pages.length){
+        loadPage(currentPage + 1);
+    }
+
+}
+
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+function previousPage(){
+
+    stopAudio();
+    stopPageVideo();
+
+    if(currentPage > 1){
+        loadPage(currentPage - 1);
+    }
+
+}
+
+
+/* =========================================================
+   GO TO PAGE
+========================================================= */
+
+function goToPage(page){
+
+    stopAudio();
+    stopPageVideo();
+
+    loadPage(page);
+
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+function goHome(){
+
+    stopAudio();
+    stopPageVideo();
+
+    window.location.replace(window.location.origin + "/");
+
+}
+
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key==="ArrowRight"){
+            nextPage();
+        }
+
+        if(event.key==="ArrowLeft"){
+            previousPage();
+        }
+
+        if(event.key===" " &&
+           currentPage<=16){
+
+            event.preventDefault();
+
+            if(currentMode){
+                playAudio(currentMode);
+            }else{
+                playAudio("normal");
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   START
+========================================================= */
+
+createDots();
+
+loadPage(1);
+
+</script>
+
+</body>
+</html>

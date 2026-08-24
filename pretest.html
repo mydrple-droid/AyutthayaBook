@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>แบบทดสอบก่อนเรียน - AyutthayaBook</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Noto Sans Thai", "Tahoma", sans-serif;
+            background: linear-gradient(135deg, #f4eaff, #eee5ff);
+            color: #4a235a;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            width: 100%;
+            height: 64px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 48px;
+
+            color: white;
+
+            background: linear-gradient(
+                90deg,
+                #7b1fa2,
+                #9c27b0,
+                #8e24aa
+            );
+
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .header-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+
+        /* ================= MAIN ================= */
+
+        .container {
+            width: min(900px, 94%);
+            margin: 0 auto;
+            padding: 35px 0 50px;
+        }
+
+
+        /* ================= BACK BUTTON ================= */
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 11px 20px;
+
+            background: white;
+            color: #7b1fa2;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            box-shadow: 0 5px 15px rgba(123, 31, 162, 0.15);
+
+            transition: 0.2s;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(123, 31, 162, 0.25);
+        }
+
+
+        /* ================= MAIN CARD ================= */
+
+        .main-card {
+            margin-top: 22px;
+
+            padding: 42px 50px 38px;
+
+            background: white;
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 10px 30px rgba(100, 40, 130, 0.12);
+        }
+
+
+        /* ================= TROPHY ================= */
+
+        .trophy {
+            text-align: center;
+
+            font-size: 45px;
+
+            margin-bottom: 5px;
+        }
+
+
+        /* ================= TITLE ================= */
+
+        h1 {
+            margin: 0 0 10px;
+
+            text-align: center;
+
+            color: #8e24aa;
+
+            font-size: 30px;
+        }
+
+        .subtitle {
+            margin-bottom: 28px;
+
+            text-align: center;
+
+            color: #777;
+
+            font-size: 16px;
+        }
+
+
+        /* ================= PROGRESS ================= */
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 9px;
+
+            color: #8e24aa;
+
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 11px;
+
+            overflow: hidden;
+
+            background: #eadcf4;
+
+            border-radius: 20px;
+        }
+
+        .progress-fill {
+            width: 20%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #9c27b0,
+                    #d13de0
+                );
+
+            border-radius: 20px;
+        }
+
+
+        /* ================= SCORE ================= */
+
+        .score-badge {
+            width: fit-content;
+
+            margin: 35px auto 30px;
+
+            padding: 11px 25px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #8e24aa,
+                    #a92bc2
+                );
+
+            border-radius: 30px;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            box-shadow:
+                0 6px 15px rgba(142, 36, 170, 0.25);
+        }
+
+
+        /* ================= TEST BOX ================= */
+
+        .test-box {
+            padding: 30px 35px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fcf9ff,
+                    #f8f1ff
+                );
+
+            border: 1px solid #dec5f7;
+
+            border-radius: 20px;
+        }
+
+        .test-title {
+            margin-bottom: 25px;
+
+            text-align: center;
+
+            color: #8e24aa;
+
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .description {
+            max-width: 720px;
+
+            margin: 0 auto;
+
+            color: #666;
+
+            text-align: center;
+
+            font-size: 16px;
+
+            line-height: 2;
+        }
+
+        .description strong {
+            color: #6a1b9a;
+        }
+
+        .notice {
+            margin-top: 18px;
+
+            color: #555;
+
+            text-align: center;
+
+            font-size: 15px;
+        }
+
+
+        /* ================= START BUTTON ================= */
+
+        .start-button {
+            display: block;
+
+            width: fit-content;
+
+            margin: 30px auto 25px;
+
+            padding: 16px 42px;
+
+            border: none;
+            border-radius: 35px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #8e24aa,
+                    #c02dd3
+                );
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 20px rgba(142, 36, 170, 0.3);
+
+            transition: all 0.2s;
+        }
+
+        .start-button:hover {
+            transform: translateY(-3px) scale(1.02);
+
+            box-shadow:
+                0 12px 25px rgba(142, 36, 170, 0.35);
+        }
+
+        .start-button:active {
+            transform: translateY(0);
+        }
+
+
+        /* ================= DIVIDER ================= */
+
+        .divider {
+            height: 1px;
+
+            margin: 25px 0 28px;
+
+            background: #e5d7ee;
+        }
+
+
+        /* ================= STEPS ================= */
+
+        .steps-title {
+            margin-bottom: 15px;
+
+            color: #8e24aa;
+
+            text-align: center;
+
+            font-weight: bold;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+        .step {
+            padding: 9px 15px;
+
+            color: #7b1fa2;
+
+            background: #f3e8ff;
+
+            border-radius: 20px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+        .step.active {
+            color: white;
+
+            background: #8e24aa;
+
+            box-shadow:
+                0 4px 10px rgba(142, 36, 170, 0.2);
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 0 18px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .header-title {
+                font-size: 13px;
+            }
+
+            .container {
+                padding-top: 20px;
+            }
+
+            .main-card {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+
+            .test-box {
+                padding: 25px 18px;
+            }
+
+            .steps {
+                flex-direction: column;
+            }
+
+            .step {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="logo">
+            📖 AyutthayaBook
+        </div>
+
+        <div class="header-title">
+            หนังสือคำศัพท์ภาษาไทย
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+
+        <!--
+            สำคัญ:
+            ใช้ ./index.html
+            เพื่อกลับไปยัง index.html
+            โดยไม่ให้ URL กลายเป็น index.html
+        -->
+
+        <a href="/" class="back-button">
+            🏠 กลับหน้าหลัก
+        </a>
+
+
+        <!-- ================= MAIN CARD ================= -->
+
+        <section class="main-card">
+
+
+            <!-- Trophy -->
+
+            <div class="trophy">
+                🏆
+            </div>
+
+
+            <!-- Title -->
+
+            <h1>
+                แบบทดสอบก่อนเรียน
+            </h1>
+
+            <p class="subtitle">
+                ทดสอบความรู้พื้นฐานก่อนเรียนเรื่อง Ayutthaya และคำศัพท์ภาษาอังกฤษ
+            </p>
+
+
+            <!-- Progress -->
+
+            <div class="progress-header">
+
+                <span>
+                    ความก้าวหน้าของบทเรียน
+                </span>
+
+                <span>
+                    1 / 5
+                </span>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div class="progress-fill"></div>
+
+            </div>
+
+
+            <!-- Score -->
+
+            <div class="score-badge">
+                🎯 คะแนนเต็ม 10 คะแนน
+            </div>
+
+
+            <!-- ================= TEST BOX ================= -->
+
+            <div class="test-box">
+
+
+                <div class="test-title">
+                    📝 แบบทดสอบก่อนเรียน
+                </div>
+
+
+                <p class="description">
+
+                    ให้นักเรียนทำแบบทดสอบก่อนเรียน
+                    เพื่อวัดความรู้พื้นฐานก่อนศึกษาเนื้อหาเรื่อง
+                    <strong>Ayutthaya</strong>
+
+                </p>
+
+
+                <p class="description">
+
+                    แบบทดสอบจัดทำด้วย
+                    <strong>ZEP QUIZ</strong>
+                    จำนวน 10 ข้อ คะแนนเต็ม 10 คะแนน
+
+                </p>
+
+
+                <p class="notice">
+
+                    📌 กรุณาทำแบบทดสอบให้ครบทุกข้อ
+                    ก่อนเข้าสู่เนื้อหาบทเรียน
+
+                </p>
+
+
+                <!-- ================= START BUTTON ================= -->
+
+                <button
+                    type="button"
+                    class="start-button"
+                    onclick="startPretest()"
+                >
+                    🎮 เริ่มทำแบบทดสอบก่อนเรียน
+                </button>
+
+
+            </div>
+
+
+            <!-- ================= DIVIDER ================= -->
+
+            <div class="divider"></div>
+
+
+            <!-- ================= LEARNING STEPS ================= -->
+
+            <div class="steps-title">
+                📚 ลำดับการเรียนรู้
+            </div>
+
+
+            <div class="steps">
+
+
+                <div class="step active">
+                    ① แบบทดสอบก่อนเรียน
+                </div>
+
+
+                <div class="step">
+                    ② เนื้อเรื่อง Ayutthaya
+                </div>
+
+
+                <div class="step">
+                    ③ คำศัพท์ 32 คำ
+                </div>
+
+
+                <div class="step">
+                    ④ แบบทดสอบหลังเรียน
+                </div>
+
+
+                <div class="step">
+                    ⑤ สรุปคะแนน
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function startPretest() {
+
+            /*
+             * บันทึกว่าเริ่มทำแบบทดสอบก่อนเรียนแล้ว
+             */
+
+            localStorage.setItem(
+                "pretestStarted",
+                "true"
+            );
+
+
+            /*
+             * บันทึกขั้นตอนปัจจุบัน
+             */
+
+            localStorage.setItem(
+                "currentStep",
+                "pretest"
+            );
+
+
+            /*
+             * เปิด ZEP QUIZ
+             *
+             * แบบทดสอบก่อนเรียน 10 ข้อ
+             * คะแนนเต็ม 10 คะแนน
+             */
+
+            window.location.href =
+                "https://quiz.zep.us/th/play/odxN6n";
+
+        }
+
+    </script>
+
+</body>
+</html>

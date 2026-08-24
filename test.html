@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>แบบทดสอบหลังเรียน - AyutthayaBook</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+        background: linear-gradient(135deg, #f3e5ff, #eef3ff);
+        color: #4a2860;
+        min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+        height: 72px;
+        background: linear-gradient(90deg, #7b1fa2, #ab25b8);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 6%;
+        box-shadow: 0 3px 12px rgba(100, 40, 130, 0.2);
+    }
+
+    .logo {
+        font-size: 25px;
+        font-weight: 700;
+    }
+
+    .header-title {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    /* Main */
+    main {
+        max-width: 1000px;
+        margin: 35px auto;
+        padding: 0 20px;
+    }
+
+    .back-button {
+        display: inline-block;
+        background: white;
+        color: #7b1fa2;
+        text-decoration: none;
+        padding: 12px 22px;
+        border-radius: 30px;
+        font-weight: 600;
+        box-shadow: 0 5px 15px rgba(100, 40, 130, 0.12);
+        margin-bottom: 25px;
+        transition: 0.2s;
+    }
+
+    .back-button:hover {
+        transform: translateY(-2px);
+    }
+
+    .hero {
+        background: white;
+        border-radius: 25px;
+        padding: 38px 30px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(100, 40, 130, 0.12);
+        border: 1px solid #ead5ff;
+    }
+
+    .hero-icon {
+        font-size: 55px;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        margin: 5px 0 10px;
+        color: #7b1fa2;
+        font-size: 32px;
+    }
+
+    .subtitle {
+        color: #777;
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    /* Progress */
+    .progress-box {
+        margin: 20px auto 35px;
+        max-width: 700px;
+    }
+
+    .progress-title {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600;
+        color: #7b1fa2;
+        margin-bottom: 8px;
+    }
+
+    .progress-bar {
+        height: 12px;
+        background: #eee4f8;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, #8e24aa, #c43dd1);
+        border-radius: 20px;
+    }
+
+    /* Test Card */
+    .test-card {
+        max-width: 700px;
+        margin: auto;
+        background: linear-gradient(135deg, #faf7ff, #f3efff);
+        border: 1px solid #dfc8ff;
+        border-radius: 20px;
+        padding: 30px;
+    }
+
+    .score-badge {
+        display: inline-block;
+        background: #7b1fa2;
+        color: white;
+        padding: 9px 20px;
+        border-radius: 25px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .test-card h2 {
+        color: #7b1fa2;
+        margin-top: 0;
+    }
+
+    .test-card p {
+        line-height: 1.8;
+        color: #666;
+    }
+
+    /* ZEP Button */
+    .zep-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+        padding: 16px 30px;
+        border-radius: 35px;
+        background: linear-gradient(135deg, #8e24aa, #b12bc0);
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 700;
+        box-shadow: 0 7px 18px rgba(142, 36, 170, 0.3);
+        transition: 0.25s;
+    }
+
+    .zep-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 22px rgba(142, 36, 170, 0.4);
+    }
+
+    /* Next */
+    .next-box {
+        margin-top: 30px;
+        padding-top: 25px;
+        border-top: 1px solid #e5d8ee;
+    }
+
+    .next-box p {
+        margin-bottom: 15px;
+        font-weight: 600;
+        color: #7b1fa2;
+    }
+
+    .score-button {
+        display: inline-block;
+        padding: 13px 25px;
+        background: white;
+        color: #7b1fa2;
+        border: 2px solid #9c27b0;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.2s;
+    }
+
+    .score-button:hover {
+        background: #9c27b0;
+        color: white;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        color: #777;
+        padding: 35px 20px;
+        font-size: 14px;
+    }
+
+    /* Mobile */
+    @media (max-width: 700px) {
+
+        header {
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+        }
+
+        .header-title {
+            font-size: 13px;
+        }
+
+        main {
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 27px;
+        }
+
+        .hero {
+            padding: 28px 18px;
+        }
+
+        .test-card {
+            padding: 22px 18px;
+        }
+
+        .zep-button {
+            width: 100%;
+            font-size: 16px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">📖 AyutthayaBook</div>
+    <div class="header-title">หนังสือคำศัพท์ภาษาไทย</div>
+</header>
+
+<main>
+
+    <!-- กลับหน้าคำศัพท์ -->
+    <a href="vocabulary.html" class="back-button">
+        ⬅️ กลับหน้าคำศัพท์
+    </a>
+
+    <!-- หัวข้อ -->
+    <section class="hero">
+
+        <div class="hero-icon">🏆</div>
+
+        <h1>แบบทดสอบหลังเรียน</h1>
+
+        <div class="subtitle">
+            ทดสอบความรู้หลังจากเรียนเรื่อง Ayutthaya และคำศัพท์ 32 คำ
+        </div>
+
+        <!-- Progress -->
+        <div class="progress-box">
+
+            <div class="progress-title">
+                <span>ความก้าวหน้าของบทเรียน</span>
+                <span>4 / 5</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+
+        </div>
+
+        <!-- Test -->
+        <div class="test-card">
+
+            <div class="score-badge">
+                🎯 คะแนนเต็ม 10 คะแนน
+            </div>
+
+            <h2>
+                📝 แบบทดสอบหลังเรียน
+            </h2>
+
+            <p>
+                ให้นักเรียนทำแบบทดสอบหลังเรียน
+                เพื่อวัดความรู้ความเข้าใจหลังจากศึกษาเนื้อเรื่อง
+                Ayutthaya และเรียนรู้คำศัพท์ทั้ง 32 คำแล้ว
+            </p>
+
+            <p>
+                กรุณากดปุ่มด้านล่างเพื่อเข้าสู่แบบทดสอบ
+                โดยแบบทดสอบจัดทำด้วย ZEP QUIZ
+            </p>
+
+            <!-- ZEP QUIZ -->
+            <a
+                href="https://quiz.zep.us/th/play/nLpxav"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="zep-button"
+            >
+                🎮 เริ่มทำแบบทดสอบหลังเรียน
+            </a>
+
+            <!-- ไปหน้าสรุป -->
+            <div class="next-box">
+
+                <p>
+                    เมื่อทำแบบทดสอบเสร็จแล้ว
+                </p>
+
+                <a href="score.html" class="score-button">
+                    📊 ไปหน้าสรุปคะแนน
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    AyutthayaBook © 2026
+</footer>
+
+</body>
+</html>
