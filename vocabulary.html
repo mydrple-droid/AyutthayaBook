@@ -3,216 +3,903 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>AyutthayaBook - หนังสือคำศัพท์</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:"Tahoma","Noto Sans Thai",sans-serif;background:linear-gradient(135deg,#f8e8ff,#e8f5ff);color:#333}
-.app{min-height:100vh;display:flex;flex-direction:column}
-header{background:linear-gradient(90deg,#6a1b9a,#8e44ad);color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 3px 12px rgba(0,0,0,.18)}
-.logo{font-size:24px;font-weight:bold} .subtitle{font-size:14px}
-.book-area{flex:1;display:flex;justify-content:center;align-items:center;padding:25px}
-.book{width:min(1000px,95vw);min-height:720px;background:#fff;border-radius:22px;box-shadow:0 12px 35px rgba(0,0,0,.2);overflow:hidden;position:relative}
-.cover{min-height:720px;padding:50px 30px;background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.7),transparent 20%),radial-gradient(circle at 80% 80%,rgba(255,255,255,.5),transparent 20%),linear-gradient(135deg,#7b1fa2,#ba68c8,#64b5f6);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.cover-icon{font-size:90px;margin-bottom:20px} .cover h1{font-size:48px;margin:10px 0} .cover h2{font-size:25px;font-weight:normal;margin:5px 0 30px} .cover p{font-size:18px;line-height:1.8}
-.page{display:none;min-height:720px;padding:35px 35px 105px} .page.active{display:block}
-.page-number{text-align:center;color:#777;font-size:14px;margin-bottom:15px}
-.page-title{text-align:center;color:#6a1b9a;font-size:30px;margin:10px 0 22px}
-.word-image{width:min(650px,90%);height:340px;object-fit:contain;display:block;margin:0 auto 22px;border-radius:18px;background:#f5f5f5;box-shadow:0 5px 18px rgba(0,0,0,.1)}
-.word-card{background:linear-gradient(135deg,#fff7ff,#eef8ff);border-radius:20px;padding:24px;text-align:center;max-width:720px;margin:auto;box-shadow:0 5px 18px rgba(0,0,0,.1)}
-.word-label,.reading-label,.meaning-label{font-size:15px;color:#777;margin-top:5px}
-.word{font-size:42px;font-weight:bold;color:#6a1b9a;margin:7px 0 12px}
-.word-type{font-size:17px;color:#777;margin-bottom:10px}
-.reading{font-size:27px;font-weight:bold;color:#e67e22;margin:6px 0 15px}
-.meaning{font-size:24px;font-weight:bold;color:#333;margin:7px 0 20px}
-.audio-button{border:none;background:linear-gradient(135deg,#7b1fa2,#ab47bc);color:#fff;font-size:19px;padding:12px 28px;border-radius:50px;cursor:pointer;box-shadow:0 5px 12px rgba(123,31,162,.3)}
-.audio-button:hover{transform:translateY(-2px)}
-.navigation{position:absolute;bottom:0;left:0;right:0;padding:15px 20px;background:rgba(255,255,255,.97);border-top:1px solid #eee;display:flex;justify-content:center;align-items:center;gap:10px}
-.nav-button{border:none;background:#6a1b9a;color:#fff;padding:10px 20px;border-radius:30px;cursor:pointer;font-size:15px}
-.nav-button:hover{background:#4a148c} .nav-button:disabled{background:#ccc;cursor:not-allowed}
-.page-indicator{min-width:140px;text-align:center;font-weight:bold;color:#555}
-.home-button{position:absolute;top:18px;left:18px;border:none;background:#fff;color:#6a1b9a;padding:8px 15px;border-radius:30px;cursor:pointer;font-weight:bold;box-shadow:0 3px 10px rgba(0,0,0,.15);z-index:2}
-.image-error{display:flex;align-items:center;justify-content:center;color:#999;font-size:17px}
+
+body{
+    margin:0;
+    font-family:"Tahoma","Noto Sans Thai",sans-serif;
+    background:linear-gradient(135deg,#f8e8ff,#e8f5ff);
+    color:#333;
+}
+
+.app{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+header{
+    background:linear-gradient(90deg,#6a1b9a,#8e44ad);
+    color:#fff;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 3px 12px rgba(0,0,0,.18);
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.subtitle{
+    font-size:14px;
+}
+
+.book-area{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:25px;
+}
+
+.book{
+    width:min(1000px,95vw);
+    min-height:720px;
+    background:#fff;
+    border-radius:22px;
+    box-shadow:0 12px 35px rgba(0,0,0,.2);
+    overflow:hidden;
+    position:relative;
+}
+
+.cover{
+    min-height:720px;
+    padding:50px 30px;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(255,255,255,.7),transparent 20%),
+        radial-gradient(circle at 80% 80%,rgba(255,255,255,.5),transparent 20%),
+        linear-gradient(135deg,#7b1fa2,#ba68c8,#64b5f6);
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.cover-icon{
+    font-size:90px;
+    margin-bottom:20px;
+}
+
+.cover h1{
+    font-size:48px;
+    margin:10px 0;
+}
+
+.cover h2{
+    font-size:25px;
+    font-weight:normal;
+    margin:5px 0 30px;
+}
+
+.cover p{
+    font-size:18px;
+    line-height:1.8;
+}
+
+.page{
+    display:none;
+    min-height:720px;
+    padding:35px 35px 105px;
+}
+
+.page.active{
+    display:block;
+}
+
+.page-number{
+    text-align:center;
+    color:#777;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.page-title{
+    text-align:center;
+    color:#6a1b9a;
+    font-size:30px;
+    margin:10px 0 22px;
+}
+
+.word-image{
+    width:min(650px,90%);
+    height:340px;
+    object-fit:contain;
+    display:block;
+    margin:0 auto 22px;
+    border-radius:18px;
+    background:#f5f5f5;
+    box-shadow:0 5px 18px rgba(0,0,0,.1);
+}
+
+.word-card{
+    background:linear-gradient(135deg,#fff7ff,#eef8ff);
+    border-radius:20px;
+    padding:24px;
+    text-align:center;
+    max-width:720px;
+    margin:auto;
+    box-shadow:0 5px 18px rgba(0,0,0,.1);
+}
+
+.word-label,
+.reading-label,
+.meaning-label{
+    font-size:15px;
+    color:#777;
+    margin-top:5px;
+}
+
+.word{
+    font-size:42px;
+    font-weight:bold;
+    color:#6a1b9a;
+    margin:7px 0 12px;
+}
+
+.word-type{
+    font-size:17px;
+    color:#777;
+    margin-bottom:10px;
+}
+
+.reading{
+    font-size:27px;
+    font-weight:bold;
+    color:#e67e22;
+    margin:6px 0 15px;
+}
+
+.meaning{
+    font-size:24px;
+    font-weight:bold;
+    color:#333;
+    margin:7px 0 20px;
+}
+
+.audio-button{
+    border:none;
+    background:linear-gradient(135deg,#7b1fa2,#ab47bc);
+    color:#fff;
+    font-size:19px;
+    padding:12px 28px;
+    border-radius:50px;
+    cursor:pointer;
+    box-shadow:0 5px 12px rgba(123,31,162,.3);
+}
+
+.audio-button:hover{
+    transform:translateY(-2px);
+}
+
+.navigation{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    padding:15px 20px;
+    background:rgba(255,255,255,.97);
+    border-top:1px solid #eee;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+}
+
+.nav-button{
+    border:none;
+    background:#6a1b9a;
+    color:#fff;
+    padding:10px 20px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.nav-button:hover{
+    background:#4a148c;
+}
+
+.nav-button:disabled{
+    background:#ccc;
+    cursor:not-allowed;
+}
+
+.page-indicator{
+    min-width:140px;
+    text-align:center;
+    font-weight:bold;
+    color:#555;
+}
+
+.home-button{
+    position:absolute;
+    top:18px;
+    left:18px;
+    border:none;
+    background:#fff;
+    color:#6a1b9a;
+    padding:8px 15px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:bold;
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+    z-index:2;
+}
+
+.image-error{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#999;
+    font-size:17px;
+}
+
 @media(max-width:700px){
-.book-area{padding:10px} .book,.cover{min-height:620px} .cover{padding:30px 20px}
-.cover h1{font-size:34px} .cover h2{font-size:20px} .page{min-height:620px;padding:30px 15px 105px}
-.page-title{font-size:24px} .word{font-size:32px} .reading{font-size:23px} .meaning{font-size:20px}
-.word-image{height:230px} .navigation{flex-wrap:wrap}
+
+    .book-area{
+        padding:10px;
+    }
+
+    .book,
+    .cover{
+        min-height:620px;
+    }
+
+    .cover{
+        padding:30px 20px;
+    }
+
+    .cover h1{
+        font-size:34px;
+    }
+
+    .cover h2{
+        font-size:20px;
+    }
+
+    .page{
+        min-height:620px;
+        padding:30px 15px 105px;
+    }
+
+    .page-title{
+        font-size:24px;
+    }
+
+    .word{
+        font-size:32px;
+    }
+
+    .reading{
+        font-size:23px;
+    }
+
+    .meaning{
+        font-size:20px;
+    }
+
+    .word-image{
+        height:230px;
+    }
+
+    .navigation{
+        flex-wrap:wrap;
+    }
 }
 </style>
 </head>
+
 <body>
+
 <div class="app">
+
 <header>
-  <div class="logo">📖 AyutthayaBook</div>
-  <div class="subtitle">หนังสือคำศัพท์ภาษาอังกฤษ</div>
+
+    <div class="logo">
+        📖 AyutthayaBook
+    </div>
+
+    <div class="subtitle">
+        หนังสือคำศัพท์ภาษาอังกฤษ
+    </div>
+
 </header>
+
+
 <div class="book-area">
+
 <div class="book">
 
+
 <section class="cover page active" id="cover">
-  <div class="cover-icon">📚</div>
-  <h1>AyutthayaBook</h1>
-  <h2>หนังสือคำศัพท์</h2>
-  <p>เรียนรู้คำศัพท์ภาษาอังกฤษเกี่ยวกับอยุธยา<br>พร้อมคำอ่านและความหมายภาษาไทย</p>
-  <button class="audio-button" onclick="startBook()">▶️ เริ่มเรียนรู้</button>
+
+    <div class="cover-icon">
+        📚
+    </div>
+
+    <h1>
+        AyutthayaBook
+    </h1>
+
+    <h2>
+        หนังสือคำศัพท์
+    </h2>
+
+    <p>
+        เรียนรู้คำศัพท์ภาษาอังกฤษเกี่ยวกับอยุธยา<br>
+        พร้อมคำอ่านและความหมายภาษาไทย
+    </p>
+
+    <button class="audio-button" onclick="startBook()">
+        ▶️ เริ่มเรียนรู้
+    </button>
+
 </section>
+
 
 <div id="pages-container"></div>
 
+
 <div class="navigation">
-  <button class="nav-button" id="prevButton" onclick="previousPage()">◀ ก่อนหน้า</button>
-  <div class="page-indicator" id="pageIndicator">หน้าปก</div>
-  <button class="nav-button" id="nextButton" onclick="nextPage()">ถัดไป ▶</button>
+
+    <button
+        class="nav-button"
+        id="prevButton"
+        onclick="previousPage()">
+        ◀ ก่อนหน้า
+    </button>
+
+    <div
+        class="page-indicator"
+        id="pageIndicator">
+        หน้าปก
+    </div>
+
+    <button
+        class="nav-button"
+        id="nextButton"
+        onclick="nextPage()">
+        ถัดไป ▶
+    </button>
+
 </div>
+
 
 </div>
 </div>
 </div>
+
 
 <script>
+
 const vocabulary = [
-    {word:'Phra Nakhon Si Ayutthaya',reading:'พระ นะ-คอน ซี อะ-ยุท-ทะ-ยา',type:'n.',meaning:'พระนครศรีอยุธยา',image:'images/vocab1.jpg'},
-    {word:'Capital',reading:'แคพ-พิ-เทิล',type:'n.',meaning:'เมืองหลวง',image:'images/vocab2.jpg'},
-    {word:'Tourist attraction',reading:'ทัว-ริสต์ อะ-แทรค-ชัน',type:'n.',meaning:'สถานที่ท่องเที่ยว',image:'images/vocab3.jpg'},
-    {word:'Boat',reading:'โบท',type:'n.',meaning:'เรือ',image:'images/page6.jpg'},
-    {word:'Car',reading:'คาร์',type:'n.',meaning:'รถยนต์',image:'images/page1.jpg'},
-    {word:'Train',reading:'เทรน',type:'n.',meaning:'รถไฟ',image:'images/page1.jpg'},
-    {word:'Historical',reading:'ฮิส-ทอ-ริ-เคิล',type:'adj.',meaning:'เกี่ยวกับประวัติศาสตร์',image:'images/page7.jpg'},
-    {word:'Majestic',reading:'มะ-เจส-ทิค',type:'adj.',meaning:'ยิ่งใหญ่ สง่างาม',image:'images/page3.jpg'},
-    {word:'Highlight',reading:'ไฮ-ไลต์',type:'n.',meaning:'จุดเด่นหรือสิ่งสำคัญ',image:'images/page1.jpg'},
-    {word:'Kingdom',reading:'คิง-ดัม',type:'n.',meaning:'ราชอาณาจักร',image:'images/page3.jpg'},
-    {word:'International',reading:'อิน-เทอร์-แนช-ชะ-นัล',type:'adj.',meaning:'ระหว่างประเทศ',image:'images/page5.jpg'},
-    {word:'Commerce',reading:'คอม-เมิร์ซ',type:'n.',meaning:'การค้า',image:'images/page5.jpg'},
-    {word:'Foreign',reading:'ฟอ-ริน',type:'adj.',meaning:'ต่างชาติ',image:'images/page5.jpg'},
-    {word:'Visitor',reading:'วิ-ซิ-เทอร์',type:'n.',meaning:'ผู้มาเยือน',image:'images/page9.jpg'},
-    {word:'Illustrious',reading:'อิ-ลัส-เทรียส',type:'adj.',meaning:'มีชื่อเสียง โดดเด่น',image:'images/page3.jpg'},
-    {word:'Glittering',reading:'กลิท-เทอ-ริง',type:'adj.',meaning:'เป็นประกาย แวววาว',image:'images/page10.jpg'},
-    {word:'City',reading:'ซิ-ที',type:'n.',meaning:'เมือง',image:'images/page3.jpg'},
-    {word:'Visit',reading:'วิ-ซิท',type:'v.',meaning:'เยี่ยมชม',image:'images/page9.jpg'},
-    {word:'Publish',reading:'พับ-ลิช',type:'v.',meaning:'เผยแพร่ ตีพิมพ์',image:'images/page1.jpg'},
-    {word:'History',reading:'ฮิส-ทะ-รี',type:'n.',meaning:'ประวัติศาสตร์',image:'images/page7.jpg'},
-    {word:'Temple',reading:'เท็ม-เพิล',type:'n.',meaning:'วัด',image:'images/page4.jpg'},
-    {word:'Ruin',reading:'รู-อิน',type:'n.',meaning:'ซากปรักหักพัง',image:'images/page7.jpg'},
-    {word:'Locate',reading:'โล-เคต',type:'v.',meaning:'ตั้งอยู่ ระบุตำแหน่ง',image:'images/page6.jpg'},
-    {word:'Ancient',reading:'เอ็น-เชินท์',type:'adj.',meaning:'โบราณ',image:'images/page3.jpg'},
-    {word:'Culture',reading:'คัล-เชอร์',type:'n.',meaning:'วัฒนธรรม',image:'images/page5.jpg'},
-    {word:'Heritage',reading:'แฮ-ริ-ทิจ',type:'n.',meaning:'มรดก',image:'images/page8.jpg'},
-    {word:'Architecture',reading:'อาร์-คิ-เทค-เชอร์',type:'n.',meaning:'สถาปัตยกรรม',image:'images/page4.jpg'},
-    {word:'Historical site',reading:'ฮิส-ทอ-ริ-เคิล ไซต์',type:'n.',meaning:'โบราณสถาน',image:'images/page8.jpg'},
-    {word:'Ruined',reading:'รู-อินด์',type:'adj.',meaning:'ที่พังทลาย',image:'images/page7.jpg'},
-    {word:'Explore',reading:'เอ็กซ์-พลอร์',type:'v.',meaning:'สำรวจ',image:'images/page9.jpg'},
-    {word:'Ancient city',reading:'เอ็น-เชินท์ ซิ-ที',type:'n.',meaning:'เมืองโบราณ',image:'images/page3.jpg'},
-    {word:'Tourist',reading:'ทัว-ริสต์',type:'n.',meaning:'นักท่องเที่ยว',image:'images/page9.jpg'}
+
+    {
+        word:'Phra Nakhon Si Ayutthaya',
+        reading:'พระ นะ-คอน ซี อะ-ยุท-ทะ-ยา',
+        type:'n.',
+        meaning:'พระนครศรีอยุธยา',
+        image:'images/vocab1.jpg'
+    },
+
+    {
+        word:'Capital',
+        reading:'แคพ-พิ-เทิล',
+        type:'n.',
+        meaning:'เมืองหลวง',
+        image:'images/vocab2.jpg'
+    },
+
+    {
+        word:'Tourist attraction',
+        reading:'ทัว-ริสต์ อะ-แทรค-ชัน',
+        type:'n.',
+        meaning:'สถานที่ท่องเที่ยว',
+        image:'images/vocab3.jpg'
+    },
+
+    {
+        word:'Boat',
+        reading:'โบท',
+        type:'n.',
+        meaning:'เรือ',
+        image:'images/page6.jpg'
+    },
+
+    {
+        word:'Car',
+        reading:'คาร์',
+        type:'n.',
+        meaning:'รถยนต์',
+        image:'images/page1.jpg'
+    },
+
+    {
+        word:'Train',
+        reading:'เทรน',
+        type:'n.',
+        meaning:'รถไฟ',
+        image:'images/page1.jpg'
+    },
+
+    {
+        word:'Historical',
+        reading:'ฮิส-ทอ-ริ-เคิล',
+        type:'adj.',
+        meaning:'เกี่ยวกับประวัติศาสตร์',
+        image:'images/page7.jpg'
+    },
+
+    {
+        word:'Majestic',
+        reading:'มะ-เจส-ทิค',
+        type:'adj.',
+        meaning:'ยิ่งใหญ่ สง่างาม',
+        image:'images/page3.jpg'
+    },
+
+    {
+        word:'Highlight',
+        reading:'ไฮ-ไลต์',
+        type:'n.',
+        meaning:'จุดเด่นหรือสิ่งสำคัญ',
+        image:'images/page1.jpg'
+    },
+
+    {
+        word:'Kingdom',
+        reading:'คิง-ดัม',
+        type:'n.',
+        meaning:'ราชอาณาจักร',
+        image:'images/page3.jpg'
+    },
+
+    {
+        word:'International',
+        reading:'อิน-เทอร์-แนช-ชะ-นัล',
+        type:'adj.',
+        meaning:'ระหว่างประเทศ',
+        image:'images/page5.jpg'
+    },
+
+    {
+        word:'Commerce',
+        reading:'คอม-เมิร์ซ',
+        type:'n.',
+        meaning:'การค้า',
+        image:'images/page5.jpg'
+    },
+
+    {
+        word:'Foreign',
+        reading:'ฟอ-ริน',
+        type:'adj.',
+        meaning:'ต่างชาติ',
+        image:'images/page5.jpg'
+    },
+
+    {
+        word:'Visitor',
+        reading:'วิ-ซิ-เทอร์',
+        type:'n.',
+        meaning:'ผู้มาเยือน',
+        image:'images/page9.jpg'
+    },
+
+    {
+        word:'Illustrious',
+        reading:'อิ-ลัส-เทรียส',
+        type:'adj.',
+        meaning:'มีชื่อเสียง โดดเด่น',
+        image:'images/page3.jpg'
+    },
+
+    {
+        word:'Glittering',
+        reading:'กลิท-เทอ-ริง',
+        type:'adj.',
+        meaning:'เป็นประกาย แวววาว',
+        image:'images/page10.jpg'
+    },
+
+    {
+        word:'City',
+        reading:'ซิ-ที',
+        type:'n.',
+        meaning:'เมือง',
+        image:'images/page3.jpg'
+    },
+
+    {
+        word:'Visit',
+        reading:'วิ-ซิท',
+        type:'v.',
+        meaning:'เยี่ยมชม',
+        image:'images/page9.jpg'
+    },
+
+    {
+        word:'Publish',
+        reading:'พับ-ลิช',
+        type:'v.',
+        meaning:'เผยแพร่ ตีพิมพ์',
+        image:'images/page1.jpg'
+    },
+
+    {
+        word:'History',
+        reading:'ฮิส-ทะ-รี',
+        type:'n.',
+        meaning:'ประวัติศาสตร์',
+        image:'images/page7.jpg'
+    },
+
+    {
+        word:'Temple',
+        reading:'เท็ม-เพิล',
+        type:'n.',
+        meaning:'วัด',
+        image:'images/page4.jpg'
+    },
+
+    {
+        word:'Ruin',
+        reading:'รู-อิน',
+        type:'n.',
+        meaning:'ซากปรักหักพัง',
+        image:'images/page7.jpg'
+    },
+
+    {
+        word:'Locate',
+        reading:'โล-เคต',
+        type:'v.',
+        meaning:'ตั้งอยู่ ระบุตำแหน่ง',
+        image:'images/page6.jpg'
+    },
+
+    {
+        word:'Ancient',
+        reading:'เอ็น-เชินท์',
+        type:'adj.',
+        meaning:'โบราณ',
+        image:'images/page3.jpg'
+    },
+
+    {
+        word:'Culture',
+        reading:'คัล-เชอร์',
+        type:'n.',
+        meaning:'วัฒนธรรม',
+        image:'images/page5.jpg'
+    },
+
+    {
+        word:'Heritage',
+        reading:'แฮ-ริ-ทิจ',
+        type:'n.',
+        meaning:'มรดก',
+        image:'images/page8.jpg'
+    },
+
+    {
+        word:'Architecture',
+        reading:'อาร์-คิ-เทค-เชอร์',
+        type:'n.',
+        meaning:'สถาปัตยกรรม',
+        image:'images/page4.jpg'
+    },
+
+    {
+        word:'Historical site',
+        reading:'ฮิส-ทอ-ริ-เคิล ไซต์',
+        type:'n.',
+        meaning:'โบราณสถาน',
+        image:'images/page8.jpg'
+    },
+
+    {
+        word:'Ruined',
+        reading:'รู-อินด์',
+        type:'adj.',
+        meaning:'ที่พังทลาย',
+        image:'images/page7.jpg'
+    },
+
+    {
+        word:'Explore',
+        reading:'เอ็กซ์-พลอร์',
+        type:'v.',
+        meaning:'สำรวจ',
+        image:'images/page9.jpg'
+    },
+
+    {
+        word:'Ancient city',
+        reading:'เอ็น-เชินท์ ซิ-ที',
+        type:'n.',
+        meaning:'เมืองโบราณ',
+        image:'images/page3.jpg'
+    },
+
+    {
+        word:'Tourist',
+        reading:'ทัว-ริสต์',
+        type:'n.',
+        meaning:'นักท่องเที่ยว',
+        image:'images/page9.jpg'
+    }
+
 ];
+
 
 const container = document.getElementById("pages-container");
 
+
 vocabulary.forEach((item,index) => {
-  const number = index + 1;
-  const page = document.createElement("section");
-  page.className = "page";
-  page.dataset.page = number;
 
-  page.innerHTML = `
-    <button class="home-button" onclick="goHome()">🏠 หน้าหลัก</button>
-    <div class="page-number">คำศัพท์ที่ ${number} / ${vocabulary.length}</div>
-    <h2 class="page-title">เรียนรู้คำศัพท์</h2>
+    const number = index + 1;
 
-    <img
-      class="word-image"
-      src="${item.image}"
-      alt="${item.word}"
-      onerror="imageFallback(this)"
-    >
+    const page = document.createElement("section");
 
-    <div class="word-card">
-      <div class="word-label">คำศัพท์</div>
-      <div class="word">${item.word}</div>
+    page.className = "page";
 
-      <div class="word-label">ชนิดของคำ</div>
-      <div class="word-type">${item.type}</div>
+    page.dataset.page = number;
 
-      <div class="reading-label">คำอ่าน</div>
-      <div class="reading">${item.reading}</div>
 
-      <div class="meaning-label">ความหมาย</div>
-      <div class="meaning">${item.meaning}</div>
+    page.innerHTML = `
 
-      <button class="audio-button" onclick="playAudio(${number})">
-        🔊 ฟังเสียง
-      </button>
-    </div>
-  `;
-  container.appendChild(page);
+        <button
+            class="home-button"
+            onclick="goHome()">
+            🏠 หน้าหลัก
+        </button>
+
+        <div class="page-number">
+            คำศัพท์ที่ ${number} / ${vocabulary.length}
+        </div>
+
+        <h2 class="page-title">
+            เรียนรู้คำศัพท์
+        </h2>
+
+        <img
+            class="word-image"
+            src="${item.image}"
+            alt="${item.word}"
+            onerror="imageFallback(this)"
+        >
+
+        <div class="word-card">
+
+            <div class="word-label">
+                คำศัพท์
+            </div>
+
+            <div class="word">
+                ${item.word}
+            </div>
+
+            <div class="word-label">
+                ชนิดของคำ
+            </div>
+
+            <div class="word-type">
+                ${item.type}
+            </div>
+
+            <div class="reading-label">
+                คำอ่าน
+            </div>
+
+            <div class="reading">
+                ${item.reading}
+            </div>
+
+            <div class="meaning-label">
+                ความหมาย
+            </div>
+
+            <div class="meaning">
+                ${item.meaning}
+            </div>
+
+            <button
+                class="audio-button"
+                onclick="playAudio(${number})">
+                🔊 ฟังเสียง
+            </button>
+
+        </div>
+    `;
+
+
+    container.appendChild(page);
+
 });
 
+
 function imageFallback(img) {
-  if (img.dataset.fallback === "1") return;
-  img.dataset.fallback = "1";
-  img.src = "images/page9.jpg";
-  img.alt = "ภาพประกอบ Ayutthaya";
+
+    if (img.dataset.fallback === "1") return;
+
+    img.dataset.fallback = "1";
+
+    img.src = "images/page9.jpg";
+
+    img.alt = "ภาพประกอบ Ayutthaya";
 }
+
 
 let currentPage = 0;
 
+
 function showPage(pageNumber) {
-  document.querySelectorAll(".page").forEach(page => page.classList.remove("active"));
 
-  if (pageNumber === 0) {
-    document.getElementById("cover").classList.add("active");
-    document.getElementById("pageIndicator").textContent = "หน้าปก";
-  } else {
-    const page = document.querySelector(`.page[data-page="${pageNumber}"]`);
-    if (page) page.classList.add("active");
-    document.getElementById("pageIndicator").textContent =
-      `คำศัพท์ ${pageNumber} / ${vocabulary.length}`;
-  }
+    document
+        .querySelectorAll(".page")
+        .forEach(page => page.classList.remove("active"));
 
-  document.getElementById("prevButton").disabled = pageNumber === 0;
-  document.getElementById("nextButton").disabled = pageNumber === vocabulary.length;
-  currentPage = pageNumber;
-  window.scrollTo({top:0,behavior:"smooth"});
+
+    if (pageNumber === 0) {
+
+        document
+            .getElementById("cover")
+            .classList.add("active");
+
+        document
+            .getElementById("pageIndicator")
+            .textContent = "หน้าปก";
+
+    } else {
+
+        const page = document.querySelector(
+            `.page[data-page="${pageNumber}"]`
+        );
+
+        if (page) {
+            page.classList.add("active");
+        }
+
+        document
+            .getElementById("pageIndicator")
+            .textContent =
+            `คำศัพท์ ${pageNumber} / ${vocabulary.length}`;
+    }
+
+
+    document
+        .getElementById("prevButton")
+        .disabled = pageNumber === 0;
+
+
+    document
+        .getElementById("nextButton")
+        .disabled =
+        pageNumber === vocabulary.length;
+
+
+    currentPage = pageNumber;
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
+
 
 function nextPage() {
-  if (currentPage < vocabulary.length) showPage(currentPage + 1);
+
+    if (currentPage < vocabulary.length) {
+
+        showPage(currentPage + 1);
+
+    }
+
 }
+
 
 function previousPage() {
-  if (currentPage > 0) showPage(currentPage - 1);
+
+    if (currentPage > 0) {
+
+        showPage(currentPage - 1);
+
+    }
+
 }
+
+
+/* แก้ปุ่มหน้าหลักให้ใช้ได้ทั้ง Live Server และ GitHub Pages */
 
 function goHome() {
-  // Live Server เปิดหน้า index.html ที่รากของเว็บไซต์
-  // ใช้ "/" เพื่อไม่ให้เกิด Cannot GET /index.html/
-  window.location.href = "/";
+
+    window.location.href = "index.html";
+
 }
+
 
 function startBook() {
-  showPage(1);
-  playAudio(1);
+
+    showPage(1);
+
+    playAudio(1);
+
 }
 
+
 function playAudio(number) {
-  const audioPath = `audio/คำศัพท์ที่ ${number}.mp3`;
-  const audio = new Audio(audioPath);
-  audio.play().catch(error => {
-    alert(
-      "ยังไม่พบไฟล์เสียงของคำศัพท์ที่ " + number +
-      "\n\nถ้ามีไฟล์เสียง ให้ตรวจสอบชื่อไฟล์เป็น\nคำศัพท์ที่ " +
-      number + ".mp3\nและเก็บไว้ในโฟลเดอร์ audio"
-    );
-    console.error(error);
-  });
+
+    const audioPath =
+        `audio/คำศัพท์ที่ ${number}.mp3`;
+
+    const audio =
+        new Audio(audioPath);
+
+
+    audio.play().catch(error => {
+
+        alert(
+            "ยังไม่พบไฟล์เสียงของคำศัพท์ที่ " +
+            number +
+            "\n\nถ้ามีไฟล์เสียง ให้ตรวจสอบชื่อไฟล์เป็น\nคำศัพท์ที่ " +
+            number +
+            ".mp3\nและเก็บไว้ในโฟลเดอร์ audio"
+        );
+
+        console.error(error);
+
+    });
+
 }
+
 
 showPage(0);
 
+
 document.addEventListener("keydown", event => {
-  if (event.key === "ArrowRight") nextPage();
-  if (event.key === "ArrowLeft") previousPage();
-  if (event.key === "Home") goHome();
+
+    if (event.key === "ArrowRight") {
+
+        nextPage();
+
+    }
+
+    if (event.key === "ArrowLeft") {
+
+        previousPage();
+
+    }
+
+    if (event.key === "Home") {
+
+        goHome();
+
+    }
+
 });
+
 </script>
+
 </body>
 </html>
