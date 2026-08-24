@@ -4,1531 +4,1276 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ayutthaya Book - Content</title>
+<title>Ayutthaya Story | Phra Nakhon Si Ayutthaya Travel Guide</title>
 
 <style>
-*{
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-html,body{
-    margin:0;
-    padding:0;
-    min-height:100%;
-    font-family:
-        "Trebuchet MS",
-        "Segoe UI",
-        Arial,
-        sans-serif;
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
     background:
-        linear-gradient(135deg,#fff8e8,#f6dfaa,#fff4d5);
-    color:#4b2b13;
-}
-
-body{
-    overflow-x:hidden;
+        linear-gradient(135deg, #f1e1ff 0%, #ead7ff 45%, #f9e8ef 100%);
+    color: #45205e;
+    min-height: 100vh;
 }
 
 /* =========================
    HEADER
 ========================= */
 
-.header{
-    height:72px;
-    background:rgba(255,255,255,.95);
-    border-bottom:3px solid #d8aa55;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 7%;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    box-shadow:0 3px 12px rgba(80,45,10,.12);
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 72px;
+    background: rgba(255,255,255,0.97);
+    border-bottom: 2px solid #ead8f5;
+    box-shadow: 0 4px 18px rgba(90,40,120,0.10);
 }
 
-.logo{
-    font-size:20px;
-    font-weight:800;
-    color:#52246f;
+.header-inner {
+    width: 100%;
+    max-width: 1450px;
+    height: 100%;
+    margin: auto;
+    padding: 0 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.logo span{
-    margin-right:10px;
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: #55267b;
 }
 
-.home-btn{
-    border:none;
-    background:linear-gradient(135deg,#a52ac1,#7b1fa2);
-    color:white;
-    padding:12px 25px;
-    border-radius:25px;
-    font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 4px 10px rgba(120,30,150,.25);
+.home-btn {
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg,#8e24aa,#c026d3);
+    padding: 11px 25px;
+    border-radius: 30px;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(160,35,190,.25);
+    transition: .25s;
 }
 
-.home-btn:hover{
-    transform:translateY(-1px);
+.home-btn:hover {
+    transform: translateY(-2px);
 }
 
 /* =========================
    MAIN
 ========================= */
 
-.main{
-    width:100%;
-    min-height:calc(100vh - 72px);
-    padding:20px 20px 35px;
-    display:flex;
-    justify-content:center;
+main {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px 80px;
 }
 
-.book{
-    width:min(1080px,96vw);
-    background:
-        linear-gradient(145deg,#fffdf4,#fff1c9);
-    border:5px solid #c8933c;
-    border-radius:25px;
-    padding:12px;
-    box-shadow:
-        0 12px 30px rgba(80,45,10,.25),
-        inset 0 0 0 3px #f4d28b;
-    position:relative;
+.heading {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-/* =========================
-   TOP IMAGE / VIDEO
-========================= */
-
-.media-area{
-    width:100%;
-    height:min(52vw,480px);
-    min-height:280px;
-    border-radius:18px;
-    overflow:hidden;
-    border:4px solid #8f6224;
-    background:#2c2115;
-    position:relative;
-    box-shadow:inset 0 0 20px rgba(0,0,0,.4);
+.heading .icon {
+    font-size: 42px;
 }
 
-.page-image,
-.page-video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
+.heading h1 {
+    color: #8e24aa;
+    font-size: 40px;
+    margin: 8px 0;
 }
 
-.page-video{
-    background:#111;
-}
-
-/* hide image if video is used */
-.hidden{
-    display:none !important;
+.heading p {
+    color: #704b86;
+    font-size: 17px;
 }
 
 /* =========================
-   PAGE BADGE
+   BOOK
 ========================= */
 
-.scene-badge{
-    position:absolute;
-    top:15px;
-    left:15px;
-    z-index:10;
-    background:#efa72e;
-    color:#3b210d;
-    padding:10px 22px;
-    border-radius:8px;
-    font-weight:900;
-    font-size:18px;
-    box-shadow:0 3px 8px rgba(0,0,0,.25);
-}
-
-.page-number{
-    position:absolute;
-    top:15px;
-    right:15px;
-    z-index:10;
-    background:#fffdf5;
-    color:#57216f;
-    padding:10px 18px;
-    border-radius:4px;
-    font-weight:800;
-    box-shadow:0 3px 8px rgba(0,0,0,.2);
+.book {
+    background: rgba(255,255,255,.97);
+    border-radius: 28px;
+    padding: 28px;
+    box-shadow: 0 12px 40px rgba(90,35,120,.12);
 }
 
 /* =========================
-   CONTENT + AUDIO
+   INTRO
 ========================= */
 
-.content-row{
-    display:grid;
-    grid-template-columns:1fr 175px;
-    gap:14px;
-    margin-top:14px;
+.intro {
+    background: linear-gradient(135deg,#fbf4ff,#f5eaff);
+    border: 1px solid #e2c7f5;
+    border-radius: 20px;
+    padding: 28px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.text-box{
-    min-height:125px;
-    background:
-        linear-gradient(135deg,#fffdf4,#fff4d4);
-    border:1px solid #e2bd70;
-    border-radius:15px;
-    padding:18px 24px;
-    box-shadow:0 3px 10px rgba(130,85,20,.08);
+.intro h2 {
+    color: #8e24aa;
+    margin-bottom: 14px;
+    font-size: 28px;
 }
 
-/* title */
-.page-title{
-    text-align:center;
-    font-size:22px;
-    font-weight:900;
-    color:#76249e;
-    margin-bottom:12px;
+.intro p {
+    line-height: 1.8;
+    color: #55396b;
+    margin-top: 7px;
 }
 
 /* =========================
-   KARAOKE
+   STORY PAGE
 ========================= */
 
-.karaoke{
-    text-align:center;
-    font-size:20px;
-    line-height:1.8;
-    font-weight:600;
+.story {
+    background: white;
+    border: 1px solid #ead8f5;
+    border-radius: 22px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 18px rgba(100,40,130,.07);
 }
 
-.karaoke-word{
-    display:inline-block;
-    padding:1px 3px;
-    margin:0 1px;
-    border-radius:5px;
-    transition:
-        color .12s ease,
-        background .12s ease,
-        transform .12s ease,
-        text-shadow .12s ease;
+.page-label {
+    display: inline-block;
+    color: white;
+    background: linear-gradient(135deg,#8e24aa,#c026d3);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 
-.karaoke-word.active{
-    color:#e53935;
-    background:#fff0a8;
-    transform:scale(1.06);
-    text-shadow:
-        0 1px 0 #fff,
-        0 0 7px rgba(255,180,0,.65);
+.story h2 {
+    color: #65278c;
+    font-size: 28px;
+    margin-bottom: 18px;
 }
 
-.karaoke-word.done{
-    color:#2476a8;
-}
-
-/* cover text */
-.cover-text{
-    font-size:24px;
-    line-height:1.7;
-    text-align:center;
-    font-weight:700;
+.story-image {
+    width: 100%;
+    height: 360px;
+    display: block;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 25px;
+    background: #f4eaff;
+    box-shadow: 0 7px 20px rgba(100,40,130,.12);
 }
 
 /* =========================
-   AUDIO BUTTONS
+   ARTICLE
 ========================= */
 
-.audio-controls{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
+.article {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    line-height: 2;
+    color: #3f2850;
 }
 
-.audio-btn{
-    border:none;
-    border-radius:16px;
-    min-height:70px;
-    color:#fff;
-    cursor:pointer;
-    font-size:19px;
-    font-weight:900;
-    box-shadow:0 4px 9px rgba(0,0,0,.18);
-    transition:.15s;
+.article p {
+    margin-bottom: 20px;
+    text-align: justify;
 }
 
-.audio-btn:hover{
-    transform:translateY(-2px);
-}
-
-.audio-btn:active{
-    transform:scale(.98);
-}
-
-.normal-btn{
-    background:linear-gradient(135deg,#68c51e,#43a916);
-}
-
-.slow-btn{
-    background:linear-gradient(135deg,#39a8e9,#147bc5);
-}
-
-.audio-btn small{
-    display:block;
-    font-size:13px;
-    margin-top:2px;
-}
-
-.audio-btn.active{
-    outline:4px solid rgba(255,196,0,.45);
+.article strong {
+    color: #7026a0;
 }
 
 /* =========================
-   INSTRUCTION
+   HIGHLIGHT
 ========================= */
 
-.instruction{
-    text-align:center;
-    font-size:13px;
-    color:#684e37;
-    margin-top:8px;
+.highlight {
+    background: #faf2ff;
+    border-left: 5px solid #a329c8;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-top: 22px;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: #58366d;
+    line-height: 1.8;
+}
+
+/* =========================
+   VOCABULARY
+========================= */
+
+.vocab-title {
+    text-align: center;
+    color: #8e24aa;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.vocabulary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.vocab {
+    background: linear-gradient(135deg,#fbf3ff,#fff9fc);
+    border: 1px solid #e3cef2;
+    border-radius: 14px;
+    padding: 15px 18px;
+    transition: .2s;
+}
+
+.vocab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(130,50,160,.10);
+}
+
+.vocab .english {
+    color: #7026a0;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.vocab .type {
+    color: #9a6aa9;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.vocab .thai {
+    color: #4e315e;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+/* =========================
+   DISTRICTS
+========================= */
+
+.district-title {
+    color: #8e24aa;
+    font-size: 24px;
+    margin: 25px 0 15px;
+}
+
+.districts {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 12px;
+}
+
+.district {
+    background: linear-gradient(135deg,#faf2ff,#fff8fc);
+    border: 1px solid #e6cff4;
+    border-radius: 12px;
+    padding: 13px 15px;
+    color: #4e2c62;
+    font-family: "Segoe UI",Tahoma,sans-serif;
+}
+
+.district strong {
+    color: #9224ae;
 }
 
 /* =========================
    NAVIGATION
 ========================= */
 
-.navigation{
-    display:grid;
-    grid-template-columns:125px 1fr 125px;
-    align-items:center;
-    gap:15px;
-    margin-top:12px;
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 25px;
 }
 
-.nav-btn{
-    height:52px;
-    border:none;
-    border-radius:12px;
-    background:linear-gradient(135deg,#f4bd55,#dc951d);
-    color:#512d0e;
-    font-size:18px;
-    font-weight:900;
-    cursor:pointer;
-    box-shadow:0 4px 8px rgba(110,70,15,.2);
+.nav-btn {
+    text-decoration: none;
+    padding: 13px 25px;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: .2s;
 }
 
-.nav-btn:disabled{
-    opacity:.4;
-    cursor:not-allowed;
+.nav-btn:hover {
+    transform: translateY(-2px);
 }
 
-.dots{
-    height:42px;
-    background:#fff0cf;
-    border:1px solid #dfb45b;
-    border-radius:20px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:5px;
-    padding:0 10px;
-    overflow:hidden;
+.prev {
+    background: #f0e3f8;
+    color: #6d348c;
 }
 
-.dot{
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    background:#d9bc82;
-    flex:none;
-    cursor:pointer;
+.next {
+    background: linear-gradient(135deg,#9c27b0,#c026d3);
+    color: white;
+    box-shadow: 0 5px 15px rgba(156,39,176,.25);
 }
 
-.dot.active{
-    width:13px;
-    height:13px;
-    background:#ef6b17;
+.counter {
+    color: #9b27b0;
+    font-weight: 700;
 }
 
 /* =========================
-   STORY PAGES 17-25
+   MOBILE
 ========================= */
 
-.story-box{
-    background:
-        linear-gradient(135deg,#fffdf4,#fff2cd);
-    border:1px solid #e2bd70;
-    border-radius:15px;
-    padding:28px;
-    margin-top:14px;
-    min-height:230px;
-}
+@media(max-width:700px) {
 
-.story-title{
-    text-align:center;
-    color:#702394;
-    font-size:27px;
-    margin-bottom:18px;
-}
-
-.story-text{
-    font-size:20px;
-    line-height:1.9;
-    text-align:justify;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:800px){
-
-    .header{
-        padding:0 15px;
-        height:62px;
+    header {
+        height: 64px;
     }
 
-    .logo{
-        font-size:15px;
+    .header-inner {
+        padding: 0 15px;
     }
 
-    .home-btn{
-        padding:9px 16px;
+    .logo {
+        font-size: 15px;
     }
 
-    .main{
-        padding:10px;
+    .home-btn {
+        padding: 8px 14px;
+        font-size: 12px;
     }
 
-    .book{
-        width:100%;
-        border-width:3px;
-        border-radius:18px;
+    main {
+        padding: 25px 12px 50px;
     }
 
-    .content-row{
-        grid-template-columns:1fr;
+    .heading h1 {
+        font-size: 30px;
     }
 
-    .audio-controls{
-        flex-direction:row;
+    .heading p {
+        font-size: 15px;
     }
 
-    .audio-btn{
-        flex:1;
-        min-height:60px;
+    .book {
+        padding: 15px;
     }
 
-    .navigation{
-        grid-template-columns:95px 1fr 95px;
+    .story {
+        padding: 18px;
     }
 
-    .nav-btn{
-        font-size:15px;
+    .story h2 {
+        font-size: 22px;
     }
 
-    .karaoke{
-        font-size:17px;
+    .story-image {
+        height: 250px;
     }
 
-    .cover-text{
-        font-size:19px;
+    .article {
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    .vocabulary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .districts {
+        grid-template-columns: 1fr;
+    }
+
+    .navigation {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
 </style>
 </head>
 
+
 <body>
 
-<header class="header">
-    <div class="logo">
-        <span>🏛️</span>
-        Phra Nakhon Si Ayutthaya Travel Guide
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-inner">
+
+        <div class="logo">
+            🏛️ Phra Nakhon Si Ayutthaya Travel Guide
+        </div>
+
+        <a href="index.html" class="home-btn">
+            🏠 หน้าหลัก
+        </a>
+
     </div>
 
-    <button class="home-btn" onclick="goHome()">
-        🏠 หน้าหลัก
-    </button>
 </header>
 
-<main class="main">
 
-<div class="book">
+<!-- =========================
+     MAIN
+========================= -->
 
-    <!-- MEDIA -->
-    <div class="media-area">
+<main>
 
-        <div class="scene-badge" id="sceneBadge">
-            Scene 1
-        </div>
+    <div class="heading">
 
-        <div class="page-number" id="pageNumber">
-            Page 1/25
-        </div>
+        <div class="icon">📖</div>
 
-        <!-- รูป -->
-        <img
-            id="pageImage"
-            class="page-image"
-            src="images/page1.jpg"
-            alt="Ayutthaya"
-        >
+        <h1>Ayutthaya Story</h1>
 
-        <!-- วิดีโอของแต่ละหน้า: videos/page1.mp4 ... videos/page25.mp4 -->
-        <video
-            id="pageVideo"
-            class="page-video hidden"
-            autoplay
-            loop
-            muted
-            playsinline
-            preload="auto"
-            poster="images/page1.jpg"
-        ></video>
+        <p>
+            Phra Nakhon Si Ayutthaya Travel Guide
+        </p>
 
     </div>
 
 
-    <!-- TEXT + AUDIO -->
-    <div class="content-row">
+    <div class="book">
 
-        <div class="text-box">
 
-            <div id="pageTitle" class="page-title">
-                About Phra Nakhon Si Ayutthaya.
+        <!-- =========================
+             INTRO
+        ========================= -->
+
+        <div class="intro">
+
+            <h2>🏛️ About Phra Nakhon Si Ayutthaya</h2>
+
+            <p>
+                Welcome to the story of Phra Nakhon Si Ayutthaya.
+                Learn about its history, importance, attractions,
+                architecture and districts.
+            </p>
+
+            <p>
+                Read each page carefully and explore the pictures
+                to learn more about Ayutthaya.
+            </p>
+
+        </div>
+
+
+        <!-- =====================================================
+             PAGE 11
+        ====================================================== -->
+
+        <section class="story" id="page11">
+
+            <div class="page-label">
+                หน้า 11
             </div>
 
-            <div id="karaokeText" class="karaoke"></div>
+            <h2>
+                Knowledge Sheet 1.1
+            </h2>
+
+            <img
+                src="./images/page1.jpg"
+                class="story-image"
+                alt="About Phra Nakhon Si Ayutthaya"
+            >
+
+            <h2>
+                About Phra Nakhon Si Ayutthaya
+            </h2>
+
+            <div class="article">
+
+                <p>
+                    Once considered the most spectacular city on Earth,
+                    the ruins of the capital of the Kingdom Ayutthaya
+                    are now a major tourist attraction easily accessible
+                    from Bangkok by car, train, or boat as either a
+                    daytrip or overnight excursion.
+                </p>
+
+                <div class="highlight">
+
+                    <strong>Key idea:</strong>
+
+                    Ayutthaya is an important historical city and
+                    a major tourist attraction that can be reached
+                    from Bangkok by car, train, or boat.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PAGE 12
+        ====================================================== -->
+
+        <section class="story" id="page12">
+
+            <div class="page-label">
+                หน้า 12
+            </div>
+
+            <h2>
+                Ayutthaya: Historical and Majestic Highlights
+            </h2>
+
+            <img
+                src="./images/page2.jpg"
+                class="story-image"
+                alt="Ayutthaya historical attractions"
+            >
+
+            <div class="article">
+
+                <p>
+                    Ayutthaya is one of Thailand’s historical
+                    and majestic highlights. The capital of Thailand,
+                    then known as the Kingdom of Ayutthaya,
+                    Phra Nakhon Si Ayutthaya was a glorified as one of
+                    the biggest cities in Southeast Asia and a regional
+                    power for 417 years.
+                </p>
+
+                <p>
+                    The Kingdom of Ayutthaya reached its apex in terms
+                    of sovereignty, military might, wealth, culture,
+                    and international commerce in the 16th century,
+                    when the Kingdom’s territory extended into and
+                    beyond present-day Laos, Cambodia, and Myanmar.
+                </p>
+
+                <p>
+                    Ayutthaya had diplomatic relations with Louis XIV
+                    of France and was courted by Dutch, Portuguese,
+                    English, Chinese and Japanese merchants.
+                </p>
+
+                <p>
+                    During the 17th century, most foreign visitors
+                    to Ayutthaya, traders and diplomats alike, claimed
+                    Ayutthaya to be the most illustrious and glittering
+                    city that they had ever visited.
+                </p>
+
+                <p>
+                    The map of Ayutthaya published in 1691 by
+                    Simon de la Loubere in Du Royaume De Siam is proof
+                    of such recognition.
+                </p>
+
+                <p>
+                    Visitors can explore and appreciate Thai history
+                    in Phra Nakhon Si Ayutthaya, which is only
+                    86 kilometers north of Bangkok.
+                </p>
+
+                <p>
+                    Visitors to Ayutthaya can marvel at its grandeur
+                    reflected through numerous magnificent temples
+                    and ruins concentrated in and around the city,
+                    which is located upon an “island” surrounded by
+                    the Chao Phraya, Pa Sak and Lopburi Rivers.
+                </p>
+
+                <div class="highlight">
+
+                    <strong>Key idea:</strong>
+
+                    Ayutthaya was a powerful and important city
+                    in Southeast Asia for 417 years and had
+                    international connections.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PAGE 13
+        ====================================================== -->
+
+        <section class="story" id="page13">
+
+            <div class="page-label">
+                หน้า 13
+            </div>
+
+            <h2>
+                Historical Park and Architecture
+            </h2>
+
+            <img
+                src="./images/page3.jpg"
+                class="story-image"
+                alt="Phra Nakhon Si Ayutthaya Historical Park"
+            >
+
+            <div class="article">
+
+                <p>
+                    Although there are numerous attractions,
+                    the Phra Nakhon Si Ayutthaya Historical Park
+                    in the heart of Ayutthaya city, is a UNESCO’s
+                    World Heritage site and a wonder to behold.
+                </p>
+
+                <p>
+                    Once the capital of the Thai Empire,
+                    Ayutthaya was a truly impressive city;
+                    with three palaces and over 400 temples,
+                    located on an island threaded by canals,
+                    it attracted traders and diplomats from both
+                    Europe and Asia.
+                </p>
+
+                <p>
+                    In 1767, 417 years after it was founded and
+                    15 months after the siege began, the Kingdom
+                    of Ayutthaya was conquered and the city’s
+                    magnificent structures were almost completely
+                    destroyed by Burmese invaders.
+                </p>
+
+                <p>
+                    When King Taksin the Great finally liberated
+                    the Kingdom, a new dynasty was established
+                    and the capital was moved to Thonburi,
+                    across the river from modern-day Bangkok.
+                </p>
+
+                <p>
+                    The ruins that now remain, many of which have
+                    been painstakingly restored, have been granted
+                    World Heritage status by UNESCO.
+                </p>
+
+                <p>
+                    The architecture of Ayutthaya is a fascinating
+                    mix of Khmer and early Sukhothai styles.
+                </p>
+
+                <p>
+                    Some cactus-shaped obelisks, called prangs,
+                    denote Khmer influence and look something like
+                    the famous towers of Angkor Wat.
+                </p>
+
+                <p>
+                    The more pointed stupas are ascribed to the
+                    Sukhothai influence.
+                </p>
+
+                <div class="highlight">
+
+                    <strong>Key idea:</strong>
+
+                    Ayutthaya's architecture reflects both
+                    Khmer and early Sukhothai influences.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PAGE 14
+        ====================================================== -->
+
+        <section class="story" id="page14">
+
+            <div class="page-label">
+                หน้า 14
+            </div>
+
+            <h2>
+                Visiting Ayutthaya and Its Districts
+            </h2>
+
+            <img
+                src="./images/page4.jpg"
+                class="story-image"
+                alt="Visiting Ayutthaya"
+            >
+
+            <div class="article">
+
+                <p>
+                    Ayutthaya is only located about 90 kilometers
+                    from Bangkok and can be visited on a daytrip;
+                    however, if you appreciate history and religious
+                    and historical monuments, an overnight stay will
+                    allow for two full days of sightseeing.
+                </p>
+
+                <p>
+                    This includes a dinner cruise on the Chao Phraya,
+                    past the illuminated Phra Nakhon Si Ayutthaya
+                    Historical Park, and a visit to only of the city’s
+                    many other attractions, including the nearby
+                    Bang Sai Folk Arts and Craft Center.
+                </p>
+
+                <div class="highlight">
+
+                    <strong>Travel idea:</strong>
+
+                    An overnight stay allows visitors to enjoy
+                    two full days of sightseeing in Ayutthaya.
+
+                </div>
+
+                <h3 class="district-title">
+                    Administrative Structure
+                </h3>
+
+                <p>
+                    The province is divided into sixteen districts
+                    (Amphoe), 209 communes sub-districts (Tambon)
+                    and 1,328 villages (Muban).
+                </p>
+
+                <p>
+                    There are two districts which have the same
+                    English name; however this is only because
+                    the different pronunciation and thus different
+                    spelling in Thai gets lost in romanization.
+                </p>
+
+                <p>
+                    Ayutthaya is unique among the provinces of Thailand
+                    in that the district of its seat of government
+                    is not called Amphoe Mueang [Ayutthaya], as the
+                    common scheme would suggest, but rather
+                    Amphoe Phra Nakhon Si Ayutthaya:
+                </p>
+
+                <div class="districts">
+
+                    <div class="district">
+                        <strong>1.</strong>
+                        Phra Nakhon Si Ayutthaya
+                    </div>
+
+                    <div class="district">
+                        <strong>2.</strong>
+                        Tha Ruea
+                    </div>
+
+                    <div class="district">
+                        <strong>3.</strong>
+                        Nakhon Luang
+                    </div>
+
+                    <div class="district">
+                        <strong>4.</strong>
+                        Bang Sai (บางไทร)
+                    </div>
+
+                    <div class="district">
+                        <strong>5.</strong>
+                        Bang Ban
+                    </div>
+
+                    <div class="district">
+                        <strong>6.</strong>
+                        Bang Pa-in
+                    </div>
+
+                    <div class="district">
+                        <strong>7.</strong>
+                        Bang Pahan
+                    </div>
+
+                    <div class="district">
+                        <strong>8.</strong>
+                        Phak Hai
+                    </div>
+
+                    <div class="district">
+                        <strong>9.</strong>
+                        Phachi
+                    </div>
+
+                    <div class="district">
+                        <strong>10.</strong>
+                        Lat Bua Luang
+                    </div>
+
+                    <div class="district">
+                        <strong>11.</strong>
+                        Wang Noi
+                    </div>
+
+                    <div class="district">
+                        <strong>12.</strong>
+                        Sena
+                    </div>
+
+                    <div class="district">
+                        <strong>13.</strong>
+                        Bang Sai (บางซ้าย)
+                    </div>
+
+                    <div class="district">
+                        <strong>14.</strong>
+                        Uthai
+                    </div>
+
+                    <div class="district">
+                        <strong>15.</strong>
+                        Maha Rat
+                    </div>
+
+                    <div class="district">
+                        <strong>16.</strong>
+                        Ban Phraek
+                    </div>
+
+                </div>
+
+                <div class="highlight">
+
+                    <strong>Remember:</strong>
+
+                    Ayutthaya Province has 16 districts,
+                    209 Tambon and 1,328 Muban.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PAGE 15
+        ====================================================== -->
+
+        <section class="story" id="page15">
+
+            <div class="page-label">
+                หน้า 15
+            </div>
+
+            <h2>
+                Vocabularies
+            </h2>
+
+            <img
+                src="./images/page5.jpg"
+                class="story-image"
+                alt="Ayutthaya vocabulary"
+            >
+
+            <div class="vocabulary-grid">
+
+                <div class="vocab">
+                    <div class="english">
+                        Phra Nakhon Si Ayutthaya
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        พระนครศรีอยุธยา
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Capital
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        เมืองหลวง
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Tourist attraction
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        สถานที่ท่องเที่ยว
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Boat
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        เรือ
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Car
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        รถยนต์
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Train
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        รถไฟ
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Historical
+                        <span class="type">(adj.)</span>
+                    </div>
+                    <div class="thai">
+                        ซึ่งเกิดขึ้นในประวัติศาสตร์
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Majestic
+                        <span class="type">(adj.)</span>
+                    </div>
+                    <div class="thai">
+                        ยิ่งใหญ่
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Highlight
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        เหตุการณ์ที่สำคัญ
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Kingdom
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        ราชอาณาจักร
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        International
+                        <span class="type">(adj.)</span>
+                    </div>
+                    <div class="thai">
+                        ระหว่างประเทศ
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Commerce
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        การค้า
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Foreign
+                        <span class="type">(adj.)</span>
+                    </div>
+                    <div class="thai">
+                        ต่างชาติ
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Visitor
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        ผู้มาเยือน
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Illustrious
+                        <span class="type">(adj.)</span>
+                    </div>
+                    <div class="thai">
+                        มีชื่อเสียง, เลื่องลือ
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Glittering
+                        <span class="type">(adj.)</span>
+                    </div>
+                    <div class="thai">
+                        น่าประทับใจ
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        City
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        เมือง
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Visit
+                        <span class="type">(v.)</span>
+                    </div>
+                    <div class="thai">
+                        เยี่ยมเยือน
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Publish
+                        <span class="type">(v.)</span>
+                    </div>
+                    <div class="thai">
+                        ประกาศ
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        History
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        ประวัติศาสตร์
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Temple
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        วัด
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Ruin
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        ซากปรักหักพัง
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Locate
+                        <span class="type">(v.)</span>
+                    </div>
+                    <div class="thai">
+                        ตั้ง
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PAGE 16
+        ====================================================== -->
+
+        <section class="story" id="page16">
+
+            <div class="page-label">
+                หน้า 16
+            </div>
+
+            <h2>
+                Vocabularies
+            </h2>
+
+            <img
+                src="./images/page6.jpg"
+                class="story-image"
+                alt="Ayutthaya vocabulary"
+            >
+
+            <div class="vocabulary-grid">
+
+                <div class="vocab">
+                    <div class="english">
+                        Island
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        เกาะ
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Chao Phraya River
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        แม่น้ำเจ้าพระยา
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Pa Sak River
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        แม่น้ำป่าสัก
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Lopburi River
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        แม่น้ำลพบุรี
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Empire
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        อาณาจักร
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Remain
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        ยังคง
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Architecture
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        สถาปัตยกรรม
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Sukhothai
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        สุโขทัย
+                    </div>
+                </div>
+
+                <div class="vocab">
+                    <div class="english">
+                        Monument
+                        <span class="type">(n.)</span>
+                    </div>
+                    <div class="thai">
+                        อนุสรณ์
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="highlight">
+
+                <strong>Vocabulary review:</strong>
+
+                Try to remember the important words about
+                Ayutthaya, its history, rivers, architecture
+                and monuments.
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             NAVIGATION
+        ========================= -->
+
+        <div class="navigation">
+
+            <a href="content.html" class="nav-btn prev">
+                ← ก่อนหน้า
+            </a>
+
+            <div class="counter">
+                Pages 11–16
+            </div>
+
+            <a href="exercise.html" class="nav-btn next">
+                ไปแบบฝึกหัด →
+            </a>
 
         </div>
 
 
-        <div
-            id="audioControls"
-            class="audio-controls"
-        >
-
-            <button
-                class="audio-btn normal-btn"
-                id="normalBtn"
-                onclick="playAudio('normal')"
-            >
-                🔊 Normal
-                <small>Speed</small>
-            </button>
-
-            <button
-                class="audio-btn slow-btn"
-                id="slowBtn"
-                onclick="playAudio('slow')"
-            >
-                🐢 Slow
-                <small>Speed</small>
-            </button>
-
-        </div>
-
     </div>
-
-
-    <div
-        id="instruction"
-        class="instruction"
-    >
-        🔊 เลือก Normal หรือ Slow เพื่อฟังเสียงและดู Karaoke
-    </div>
-
-
-    <!-- NAVIGATION -->
-    <div class="navigation">
-
-        <button
-            id="prevBtn"
-            class="nav-btn"
-            onclick="previousPage()"
-        >
-            ◀ Previous
-        </button>
-
-        <div
-            id="dots"
-            class="dots"
-        ></div>
-
-        <button
-            id="nextBtn"
-            class="nav-btn"
-            onclick="nextPage()"
-        >
-            Next ▶
-        </button>
-
-    </div>
-
-</div>
 
 </main>
-
-
-<audio id="audioPlayer" preload="auto"></audio>
-
-
-<script>
-
-/* =========================================================
-   AYUTTHAYA CONTENT
-   หน้า 1-16 ใช้ข้อความตรงกับบทที่ผู้ใช้กำหนด
-========================================================= */
-
-const pages = [
-
-/* =========================
-   PAGE 1
-========================= */
-
-{
-    page:1,
-    title:"About Phra Nakhon Si Ayutthaya.",
-    text:"About Phra Nakhon Si Ayutthaya. Backpack Adventure... Falling in Love with the Ancient City.",
-    audio:true,
-    image:"images/page1.jpg"
-},
-
-/* =========================
-   PAGE 2
-========================= */
-
-{
-    page:2,
-    title:"",
-    text:"Once considered the most spectacular city on Earth, the ruins of the capital of the Kingdom Ayutthaya are now a major tourist attraction easily accessible from Bangkok by car, train, or boat, as either a daytrip or overnight excursion.",
-    audio:true,
-    image:"images/page2.jpg"
-},
-
-/* =========================
-   PAGE 3
-========================= */
-
-{
-    page:3,
-    title:"",
-    text:"Ayutthaya is one of Thailand's historical and majestic highlights. The capital of Thailand, then known as the Kingdom of Ayutthaya, Phra Nakhon Si Ayutthaya was glorified as one of the biggest cities in Southeast Asia, and a regional power for four hundred and seventeen years.",
-    audio:true,
-    image:"images/page3.jpg"
-},
-
-/* =========================
-   PAGE 4
-========================= */
-
-{
-    page:4,
-    title:"",
-    text:"The Kingdom of Ayutthaya reached its apex in terms of sovereignty, military might, wealth, culture, and international commerce in the sixteenth century, when the Kingdom's territory extended into and beyond present-day Laos, Cambodia, and Myanmar. Ayutthaya had diplomatic relations with Louis the Fourteenth of France, and was courted by Dutch, Portuguese, English, Chinese, and Japanese merchants.",
-    audio:true,
-    image:"images/page4.jpg"
-},
-
-/* =========================
-   PAGE 5
-========================= */
-
-{
-    page:5,
-    title:"",
-    text:"During the seventeenth century, most foreign visitors to Ayutthaya, traders and diplomats alike, claimed Ayutthaya to be the most illustrious and glittering city that they had ever visited. The map of Ayutthaya published in sixteen ninety-one, by Simon de la Loubere, in Du Royaume De Siam, is proof of such recognition.",
-    audio:true,
-    image:"images/page5.jpg"
-},
-
-/* =========================
-   PAGE 6
-========================= */
-
-{
-    page:6,
-    title:"",
-    text:"Visitors can explore and appreciate Thai history in Phra Nakhon Si Ayutthaya, which is only eighty-six kilometers north of Bangkok. Visitors to Ayutthaya can marvel at its grandeur reflected through numerous magnificent temples and ruins concentrated in and around the city, which is located upon an island surrounded by the Chao Phraya, Pa Sak, and Lopburi Rivers.",
-    audio:true,
-    image:"images/page6.jpg"
-},
-
-/* =========================
-   PAGE 7
-========================= */
-
-{
-    page:7,
-    title:"",
-    text:"Although there are numerous attractions, the Phra Nakhon Si Ayutthaya Historical Park, in the heart of Ayutthaya city, is a UNESCO's World Heritage site, and a wonder to behold.",
-    audio:true,
-    image:"images/page7.jpg"
-},
-
-/* =========================
-   PAGE 8
-========================= */
-
-{
-    page:8,
-    title:"",
-    text:"Once the capital of the Thai Empire, Ayutthaya was a truly impressive city; with three palaces, and over four hundred temples, located on an island threaded by canals, it attracted traders and diplomats from both Europe and Asia.",
-    audio:true,
-    image:"images/page8.jpg"
-},
-
-/* =========================
-   PAGE 9
-========================= */
-
-{
-    page:9,
-    title:"",
-    text:"In seventeen sixty-seven, four hundred and seventeen years after it was founded, and fifteen months after the siege began, the Kingdom of Ayutthaya was conquered, and the city's magnificent structures were almost completely destroyed by Burmese invaders. When King Taksin the Great finally liberated the Kingdom, a new dynasty was established, and the capital was moved to Thonburi, across the river from modern-day Bangkok.",
-    audio:true,
-    image:"images/page9.jpg"
-},
-
-/* =========================
-   PAGE 10
-========================= */
-
-{
-    page:10,
-    title:"",
-    text:"The ruins that now remain, many of which have been painstakingly restored, have been granted World Heritage status by UNESCO. The architecture of Ayutthaya is a fascinating mix of Khmer and early Sukhothai styles.",
-    audio:true,
-    image:"images/page10.jpg"
-},
-
-/* =========================
-   PAGE 11
-========================= */
-
-{
-    page:11,
-    title:"",
-    text:"Some cactus-shaped obelisks, called prangs, denote Khmer influence, and look something like the famous towers of Angkor Wat. The more pointed stupas are ascribed to the Sukhothai influence.",
-    audio:true,
-    image:"images/page11.jpg"
-},
-
-/* =========================
-   PAGE 12
-========================= */
-
-{
-    page:12,
-    title:"",
-    text:"Ayutthaya is only located about ninety kilometers from Bangkok, and can be visited on a daytrip; however, if you appreciate history, and religious and historical monuments, an overnight stay will allow for two full days of sightseeing, including a dinner cruise on the Chao Phraya, past the illuminated Phra Nakhon Si Ayutthaya Historical Park, and a visit to only of the city's many other attractions, including the nearby Bang Sai Folk Arts and Craft Center.",
-    audio:true,
-    image:"images/page12.jpg"
-},
-
-/* =========================
-   PAGE 13
-========================= */
-
-{
-    page:13,
-    title:"",
-    text:"The province is divided into sixteen districts, or Amphoe, two hundred and nine communes, sub-districts, or Tambon, and one thousand three hundred and twenty-eight villages, or Muban.",
-    audio:true,
-    image:"images/page13.jpg"
-},
-
-/* =========================
-   PAGE 14
-========================= */
-
-{
-    page:14,
-    title:"",
-    text:"There are two districts which have the same English name; however, this is only because the different pronunciation, and thus different spelling in Thai, gets lost in romanization.",
-    audio:true,
-    image:"images/page14.jpg"
-},
-
-/* =========================
-   PAGE 15
-========================= */
-
-{
-    page:15,
-    title:"",
-    text:"Ayutthaya is unique among the provinces of Thailand, in that the district of its seat of government is not called Amphoe Mueang Ayutthaya, as the common scheme would suggest, but rather Amphoe Phra Nakhon Si Ayutthaya.",
-    audio:true,
-    image:"images/page15.jpg"
-},
-
-/* =========================
-   PAGE 16
-========================= */
-
-{
-    page:16,
-    title:"",
-    text:"One. Phra Nakhon Si Ayutthaya. Two. Tha Ruea. Three. Nakhon Luang. Four. Bang Sai. Five. Bang Ban. Six. Bang Pa-in. Seven. Bang Pahan. Eight. Phak Hai. Nine. Phachi. Ten. Lat Bua Luang. Eleven. Wang Noi. Twelve. Sena. Thirteen. Bang Sai. Fourteen. Uthai. Fifteen. Maha Rat. Sixteen. Ban Phraek.",
-    audio:true,
-    image:"images/page16.jpg"
-},
-
-/* =========================
-   PAGE 17
-========================= */
-
-{
-    page:17,
-    title:"Ayutthaya Story",
-    text:"The ancient city of Ayutthaya tells the story of a powerful kingdom and a remarkable chapter in Thai history.",
-    audio:false,
-    image:"images/page17.jpg"
-},
-
-/* =========================
-   PAGE 18
-========================= */
-
-{
-    page:18,
-    title:"The Ancient Capital",
-    text:"The city grew into an important center of culture, trade, religion, and international relations.",
-    audio:false,
-    image:"images/page18.jpg"
-},
-
-/* =========================
-   PAGE 19
-========================= */
-
-{
-    page:19,
-    title:"A City of Temples",
-    text:"Magnificent temples, palaces, and monuments reflected the wealth and artistic achievements of the Ayutthaya Kingdom.",
-    audio:false,
-    image:"images/page19.jpg"
-},
-
-/* =========================
-   PAGE 20
-========================= */
-
-{
-    page:20,
-    title:"Trade and Culture",
-    text:"Merchants and visitors from many countries came to Ayutthaya, bringing goods, ideas, languages, and cultures.",
-    audio:false,
-    image:"images/page20.jpg"
-},
-
-/* =========================
-   PAGE 21
-========================= */
-
-{
-    page:21,
-    title:"The Rivers",
-    text:"The Chao Phraya, Pa Sak, and Lopburi Rivers surrounded the city and played an important role in transportation and trade.",
-    audio:false,
-    image:"images/page21.jpg"
-},
-
-/* =========================
-   PAGE 22
-========================= */
-
-{
-    page:22,
-    title:"Historical Ruins",
-    text:"Today, visitors can explore the ruins and imagine the magnificent capital that once stood here.",
-    audio:false,
-    image:"images/page22.jpg"
-},
-
-/* =========================
-   PAGE 23
-========================= */
-
-{
-    page:23,
-    title:"World Heritage",
-    text:"The historic city of Ayutthaya has been recognized as a UNESCO World Heritage site.",
-    audio:false,
-    image:"images/page23.jpg"
-},
-
-/* =========================
-   PAGE 24
-========================= */
-
-{
-    page:24,
-    title:"Discover Ayutthaya",
-    text:"Walking among the ancient temples and ruins allows visitors to experience the atmosphere of Thailand's historic capital.",
-    audio:false,
-    image:"images/page24.jpg"
-},
-
-/* =========================
-   PAGE 25
-========================= */
-
-{
-    page:25,
-    title:"Falling in Love with the Ancient City",
-    text:"Ayutthaya is more than an ancient city. It is a place where history, culture, architecture, and beautiful memories come together.",
-    audio:false,
-    image:"images/page25.jpg"
-}
-
-];
-
-
-/* =========================================================
-   VARIABLES
-========================================================= */
-
-let currentPage = 1;
-
-let currentMode = null;
-
-const audioPlayer =
-    document.getElementById("audioPlayer");
-
-let karaokeTimer = null;
-
-let karaokeWords = [];
-
-let karaokeIndex = -1;
-
-
-/* =========================================================
-   DOM
-========================================================= */
-
-const pageImage =
-    document.getElementById("pageImage");
-
-const pageVideo =
-    document.getElementById("pageVideo");
-
-const pageTitle =
-    document.getElementById("pageTitle");
-
-const karaokeText =
-    document.getElementById("karaokeText");
-
-const sceneBadge =
-    document.getElementById("sceneBadge");
-
-const pageNumber =
-    document.getElementById("pageNumber");
-
-const audioControls =
-    document.getElementById("audioControls");
-
-const instruction =
-    document.getElementById("instruction");
-
-const normalBtn =
-    document.getElementById("normalBtn");
-
-const slowBtn =
-    document.getElementById("slowBtn");
-
-const prevBtn =
-    document.getElementById("prevBtn");
-
-const nextBtn =
-    document.getElementById("nextBtn");
-
-const dots =
-    document.getElementById("dots");
-
-
-/* =========================================================
-   CREATE DOTS
-========================================================= */
-
-function createDots(){
-
-    dots.innerHTML="";
-
-    pages.forEach((page,index)=>{
-
-        const dot =
-            document.createElement("span");
-
-        dot.className="dot";
-
-        dot.title=`หน้า ${page.page}`;
-
-        dot.onclick=()=>{
-            goToPage(index+1);
-        };
-
-        dots.appendChild(dot);
-
-    });
-
-}
-
-
-/* =========================================================
-   STOP AUDIO
-========================================================= */
-
-function stopAudio(){
-
-    clearInterval(karaokeTimer);
-
-    karaokeTimer=null;
-
-    audioPlayer.pause();
-
-    audioPlayer.currentTime=0;
-
-    audioPlayer.removeAttribute("src");
-
-    audioPlayer.load();
-
-    currentMode=null;
-
-    karaokeIndex=-1;
-
-    karaokeWords=[];
-
-    document
-        .querySelectorAll(".karaoke-word")
-        .forEach(word=>{
-            word.classList.remove("active","done");
-        });
-
-    normalBtn.classList.remove("active");
-
-    slowBtn.classList.remove("active");
-}
-
-
-/* =========================================================
-   KARAOKE WORDS
-========================================================= */
-
-function createKaraoke(text){
-
-    karaokeText.innerHTML="";
-
-    karaokeWords=[];
-
-    const tokens =
-        text.trim().split(/\s+/);
-
-    tokens.forEach((token,index)=>{
-
-        const span =
-            document.createElement("span");
-
-        span.className="karaoke-word";
-
-        span.textContent=token;
-
-        span.dataset.index=index;
-
-        karaokeText.appendChild(span);
-
-        karaokeWords.push(span);
-
-        if(index < tokens.length-1){
-
-            karaokeText.appendChild(
-                document.createTextNode(" ")
-            );
-
-        }
-
-    });
-
-}
-
-
-/* =========================================================
-   KARAOKE SYNC
-========================================================= */
-
-/*
-   ระบบนี้ใช้ความยาวจริงของ MP3
-   แล้วแบ่งเวลาให้แต่ละคำตามจำนวนคำ
-
-   เมื่อเสียงเริ่ม:
-   คำจะถูกไฮไลต์ทีละคำ
-
-   เมื่อเสียงจบ:
-   คำสุดท้ายจะถูกไฮไลต์
-*/
-
-function startKaraoke(){
-
-    clearInterval(karaokeTimer);
-
-    if(!karaokeWords.length){
-        return;
-    }
-
-    const duration =
-        audioPlayer.duration;
-
-    if(!duration || !isFinite(duration)){
-        return;
-    }
-
-    const totalWords =
-        karaokeWords.length;
-
-    function update(){
-
-        if(!audioPlayer.duration){
-            return;
-        }
-
-        const progress =
-            audioPlayer.currentTime /
-            audioPlayer.duration;
-
-        let index =
-            Math.floor(progress * totalWords);
-
-        if(index >= totalWords){
-            index=totalWords-1;
-        }
-
-        if(index !== karaokeIndex){
-
-            karaokeWords.forEach(
-                (word,i)=>{
-
-                    word.classList.remove(
-                        "active",
-                        "done"
-                    );
-
-                    if(i < index){
-                        word.classList.add("done");
-                    }
-
-                }
-            );
-
-            karaokeWords[index]
-                .classList.add("active");
-
-            karaokeIndex=index;
-
-            /*
-              เลื่อนหน้าจอเบา ๆ
-              ให้คำที่กำลังอ่านอยู่เห็นชัด
-            */
-
-            karaokeWords[index]
-                .scrollIntoView({
-                    behavior:"smooth",
-                    block:"nearest",
-                    inline:"nearest"
-                });
-        }
-
-    }
-
-    update();
-
-    karaokeTimer =
-        setInterval(update,80);
-}
-
-
-/* =========================================================
-   PLAY AUDIO
-========================================================= */
-
-function playAudio(mode){
-
-    const page =
-        pages[currentPage-1];
-
-    if(!page.audio){
-        return;
-    }
-
-    /*
-      กดปุ่มเดิมซ้ำ
-      หยุดเสียง
-    */
-
-    if(
-        currentMode === mode &&
-        !audioPlayer.paused
-    ){
-        stopAudio();
-        return;
-    }
-
-    stopAudio();
-
-    currentMode=mode;
-
-    const file =
-        `audio/page${page.page}-${mode}.mp3`;
-
-    audioPlayer.src=file;
-
-    /*
-      Normal = 1.0
-      Slow = 0.65
-    */
-
-    audioPlayer.playbackRate =
-        mode==="slow"
-        ? 0.65
-        : 1.0;
-
-    if(mode==="normal"){
-        normalBtn.classList.add("active");
-    }else{
-        slowBtn.classList.add("active");
-    }
-
-    audioPlayer.load();
-
-    audioPlayer.onloadedmetadata=()=>{
-
-        audioPlayer.play()
-            .then(()=>{
-
-                startKaraoke();
-
-            })
-            .catch(error=>{
-
-                console.error(
-                    "ไม่สามารถเล่นเสียง:",
-                    file,
-                    error
-                );
-
-            });
-
-    };
-
-    audioPlayer.onended=()=>{
-
-        clearInterval(karaokeTimer);
-
-        karaokeWords.forEach(
-            word=>{
-                word.classList.remove("active");
-                word.classList.add("done");
-            }
-        );
-
-        currentMode=null;
-
-        normalBtn.classList.remove("active");
-        slowBtn.classList.remove("active");
-
-    };
-
-}
-
-
-/* =========================================================
-   LOAD PAGE
-========================================================= */
-
-function loadPage(pageNumberToLoad){
-
-    stopAudio();
-
-    currentPage =
-        Math.max(
-            1,
-            Math.min(
-                pages.length,
-                pageNumberToLoad
-            )
-        );
-
-    const page =
-        pages[currentPage-1];
-
-
-    /* ======================
-       PAGE NUMBER
-    ====================== */
-
-    pageNumber.textContent =
-        `Page ${currentPage}/25`;
-
-    sceneBadge.textContent =
-        `Scene ${currentPage}`;
-
-
-    /* ======================
-       IMAGE
-    ====================== */
-
-    pageImage.src =
-        page.image;
-
-    pageImage.classList.remove("hidden");
-
-
-    /* ======================
-       VIDEO
-       ใช้ videos/page1.mp4 ... videos/page25.mp4
-       ถ้าไม่มีไฟล์ ให้แสดงรูปแทน
-    ====================== */
-
-    pageVideo.pause();
-    pageVideo.removeAttribute("src");
-    pageVideo.load();
-    pageVideo.classList.add("hidden");
-
-    const videoFile = `videos/page${page.page}.mp4`;
-    pageVideo.poster = page.image;
-    pageVideo.loop = true;
-    pageVideo.playsInline = true;
-    pageVideo.autoplay = true;
-    pageVideo.volume = 0.12; // เสียงวิดีโอเบา 12%
-
-    // แสดงวิดีโอเมื่อไฟล์โหลดได้
-    pageVideo.onloadeddata = () => {
-        pageVideo.classList.remove("hidden");
-        pageImage.classList.add("hidden");
-
-        // พยายามเล่นอัตโนมัติด้วยเสียงเบา
-        pageVideo.muted = false;
-        pageVideo.volume = 0.12;
-
-        pageVideo.play().catch(() => {
-            // Browser บางตัวบล็อก autoplay ที่มีเสียง
-            // จึง fallback เป็น muted autoplay เพื่อให้วิดีโอเล่นวนได้ทันที
-            pageVideo.muted = true;
-            pageVideo.volume = 0.12;
-            pageVideo.play().catch(() => {});
-        });
-    };
-
-    // ถ้าไม่มีวิดีโอ ให้กลับมาแสดงรูป
-    pageVideo.onerror = () => {
-        pageVideo.pause();
-        pageVideo.removeAttribute("src");
-        pageVideo.load();
-        pageVideo.classList.add("hidden");
-        pageImage.classList.remove("hidden");
-    };
-
-    pageVideo.src = videoFile;
-    pageVideo.load();
-
-
-    /* ======================
-       TITLE
-    ====================== */
-
-    pageTitle.textContent =
-        page.title || "";
-
-    pageTitle.style.display =
-        page.title
-        ? "block"
-        : "none";
-
-
-    /* ======================
-       KARAOKE TEXT
-    ====================== */
-
-    createKaraoke(page.text);
-
-
-    /* ======================
-       AUDIO
-    ====================== */
-
-    if(page.audio){
-
-        audioControls.style.display="flex";
-
-        instruction.textContent =
-            "🔊 เลือก Normal หรือ Slow เพื่อฟังเสียงและดู Karaoke";
-
-    }else{
-
-        audioControls.style.display="none";
-
-        instruction.textContent =
-            "📖 อ่านเนื้อเรื่องแล้วกด Next เพื่อไปหน้าถัดไป";
-
-    }
-
-
-    /* ======================
-       BUTTONS
-    ====================== */
-
-    prevBtn.disabled =
-        currentPage===1;
-
-    nextBtn.disabled =
-        currentPage===pages.length;
-
-
-    /* ======================
-       DOTS
-    ====================== */
-
-    const allDots =
-        document.querySelectorAll(".dot");
-
-    allDots.forEach(
-        (dot,index)=>{
-            dot.classList.toggle(
-                "active",
-                index===currentPage-1
-            );
-        }
-    );
-
-
-    /* ======================
-       TOP
-    ====================== */
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
-}
-
-
-/* =========================================================
-   NEXT
-========================================================= */
-
-function nextPage(){
-
-    if(currentPage < pages.length){
-
-        stopAudio();
-
-        loadPage(
-            currentPage+1
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   PREVIOUS
-========================================================= */
-
-function previousPage(){
-
-    if(currentPage > 1){
-
-        stopAudio();
-
-        loadPage(
-            currentPage-1
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   GO TO PAGE
-========================================================= */
-
-function goToPage(page){
-
-    stopAudio();
-
-    loadPage(page);
-
-}
-
-
-/* =========================================================
-   HOME
-========================================================= */
-
-function goHome(){
-
-    stopAudio();
-
-    // กลับหน้าแรกแบบ absolute path ป้องกัน /index.html
-    window.location.replace("/index.html");
-
-}
-
-
-/* =========================================================
-   KEYBOARD
-========================================================= */
-
-document.addEventListener(
-    "keydown",
-    function(event){
-
-        if(event.key==="ArrowRight"){
-            nextPage();
-        }
-
-        if(event.key==="ArrowLeft"){
-            previousPage();
-        }
-
-        if(event.key===" " &&
-           currentPage<=16){
-
-            event.preventDefault();
-
-            if(currentMode){
-                playAudio(currentMode);
-            }else{
-                playAudio("normal");
-            }
-
-        }
-
-    }
-);
-
-
-window.addEventListener("beforeunload", () => {
-    stopAudio();
-    if(pageVideo){
-        pageVideo.pause();
-        pageVideo.removeAttribute("src");
-        pageVideo.load();
-    }
-});
-
-/* =========================================================
-   START
-========================================================= */
-
-createDots();
-
-loadPage(1);
-
-</script>
 
 </body>
 </html>
